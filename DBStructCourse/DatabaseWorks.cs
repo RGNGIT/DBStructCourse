@@ -37,10 +37,12 @@ namespace DBStructCourse
         public DatabaseWorks(string Credentials)
         {
             connection = new SqlConnection(Credentials);
+            connection.Open();
         }
 
         ~DatabaseWorks()
         {
+            connection.Close();
             Dispose(false);
         }
 
@@ -70,19 +72,43 @@ namespace DBStructCourse
             }
         }
 
-        public void AddEventType(string EventType) // Tab::(Db_EventType), Fields::(Тип_Мероприятия)
+        public string AddEventType(string EventType) // Tab::(Db_EventType), Fields::(Тип_Мероприятия)
         {
-
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Db_EventType (Тип_Мероприятия) VALUES ('{EventType}')", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
         }
 
-        public void AddConstructType(string ConstructType) // Tab::(Db_ConstructType), Fields::(Тип_Сооруж)
+        public string AddConstructType(string ConstructType) // Tab::(Db_ConstructType), Fields::(Тип_Сооруж)
         {
-
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Db_ConstructType (Тип_Сооруж) VALUES ('{ConstructType}')", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
         }
         
-        public void AddLocaleType(string LocaleType) // Tab::(Db_LocaleType), Fields::(ТипНасПункт)
+        public string AddLocaleType(string LocaleType) // Tab::(Db_LocaleType), Fields::(ТипНасПункт)
         {
-
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Db_LocaleType (ТипНасПункт) VALUES ('{LocaleType}')", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
         }
 
     }

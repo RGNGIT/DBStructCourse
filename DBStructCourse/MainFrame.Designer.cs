@@ -36,7 +36,7 @@ namespace DBStructCourse
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxMainLog = new System.Windows.Forms.ListBox();
             this.dataGridViewDir = new System.Windows.Forms.DataGridView();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -50,6 +50,10 @@ namespace DBStructCourse
             this.buttonAddDir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDirLocaleType = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxDirConstructType = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxDirEventType = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -57,6 +61,8 @@ namespace DBStructCourse
             this.tabControl2.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -128,7 +134,7 @@ namespace DBStructCourse
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.listBox1);
+            this.tabPage6.Controls.Add(this.listBoxMainLog);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -137,13 +143,13 @@ namespace DBStructCourse
             this.tabPage6.Text = "Лог";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBoxMainLog
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(8, 6);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1095, 602);
-            this.listBox1.TabIndex = 0;
+            this.listBoxMainLog.FormattingEnabled = true;
+            this.listBoxMainLog.Location = new System.Drawing.Point(8, 6);
+            this.listBoxMainLog.Name = "listBoxMainLog";
+            this.listBoxMainLog.Size = new System.Drawing.Size(1095, 602);
+            this.listBoxMainLog.TabIndex = 0;
             // 
             // dataGridViewDir
             // 
@@ -164,6 +170,7 @@ namespace DBStructCourse
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(372, 576);
             this.tabControl2.TabIndex = 1;
+            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage7
             // 
@@ -193,20 +200,24 @@ namespace DBStructCourse
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.label4);
+            this.tabPage9.Controls.Add(this.textBoxDirConstructType);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(364, 580);
+            this.tabPage9.Size = new System.Drawing.Size(364, 550);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Тип сооружения";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.label5);
+            this.tabPage10.Controls.Add(this.textBoxDirEventType);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(364, 580);
+            this.tabPage10.Size = new System.Drawing.Size(364, 550);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Тип события";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -251,6 +262,7 @@ namespace DBStructCourse
             this.buttonAddDir.TabIndex = 2;
             this.buttonAddDir.Text = "Добавить";
             this.buttonAddDir.UseVisualStyleBackColor = true;
+            this.buttonAddDir.Click += new System.EventHandler(this.buttonAddDir_Click);
             // 
             // label3
             // 
@@ -267,6 +279,38 @@ namespace DBStructCourse
             this.textBoxDirLocaleType.Name = "textBoxDirLocaleType";
             this.textBoxDirLocaleType.Size = new System.Drawing.Size(352, 20);
             this.textBoxDirLocaleType.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Тип";
+            // 
+            // textBoxDirConstructType
+            // 
+            this.textBoxDirConstructType.Location = new System.Drawing.Point(6, 19);
+            this.textBoxDirConstructType.Name = "textBoxDirConstructType";
+            this.textBoxDirConstructType.Size = new System.Drawing.Size(352, 20);
+            this.textBoxDirConstructType.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Тип";
+            // 
+            // textBoxDirEventType
+            // 
+            this.textBoxDirEventType.Location = new System.Drawing.Point(6, 19);
+            this.textBoxDirEventType.Name = "textBoxDirEventType";
+            this.textBoxDirEventType.Size = new System.Drawing.Size(352, 20);
+            this.textBoxDirEventType.TabIndex = 8;
             // 
             // MainFrame
             // 
@@ -285,6 +329,10 @@ namespace DBStructCourse
             this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,7 +347,7 @@ namespace DBStructCourse
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView dataGridViewDir;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxMainLog;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
@@ -312,6 +360,10 @@ namespace DBStructCourse
         private System.Windows.Forms.TextBox textBoxDirPhoneType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDirLocaleType;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxDirConstructType;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxDirEventType;
     }
 }
 

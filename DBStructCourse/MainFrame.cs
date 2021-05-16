@@ -16,5 +16,52 @@ namespace DBStructCourse
         {
             InitializeComponent();
         }
+
+        string Credentials = 
+            "Server = localhost;" +
+            "Integrated security = SSPI;" +
+            "database = course";
+
+        private void buttonAddDir_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            switch (tabControl2.SelectedIndex)
+            {
+                case 0:
+                    listBoxMainLog.Items.Add(database.AddPhonesData(textBoxDirPhoneType.Text, textBoxDirPhoneNum.Text));
+                    break;
+                case 1:
+                    listBoxMainLog.Items.Add(database.AddLocaleType(textBoxDirLocaleType.Text));
+                    break;
+                case 2:
+                    listBoxMainLog.Items.Add(database.AddConstructType(textBoxDirConstructType.Text));
+                    break;
+                case 3:
+                    listBoxMainLog.Items.Add(database.AddEventType(textBoxDirEventType.Text));
+                    break;
+            }
+            DirTabUpdate();
+            database.Dispose();
+        }
+
+        string[] DirTables = new string[4] 
+        { 
+            "Db_Phones", 
+            "Db_LocaleType", 
+            "Db_ConstructType", 
+            "Db_EventType"
+        };
+
+        void DirTabUpdate()
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewDir.DataSource = database.ReturnTable(DirTables[tabControl2.SelectedIndex]).Tables[0].DefaultView;
+            database.Dispose();
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DirTabUpdate();
+        }
     }
 }
