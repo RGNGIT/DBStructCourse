@@ -52,16 +52,38 @@ namespace DBStructCourse
             "Db_EventType"
         };
 
+        // SELECT - FROM - -
+
         void DirTabUpdate()
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            dataGridViewDir.DataSource = database.ReturnTable(DirTables[tabControl2.SelectedIndex]).Tables[0].DefaultView;
+            dataGridViewDir.DataSource = database.ReturnTable("*", DirTables[tabControl2.SelectedIndex], null).Tables[0].DefaultView;
+            database.Dispose();
+        }
+
+        void MainTabUpdate(int Index)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            switch (Index)
+            {
+                case 0:
+                    dataGridViewLocale.DataSource = database.ReturnTable(
+                        "Db_Locale.Код, Название_НасПункта, Кр_Название_НасПункта, Db_LocaleType.ТипНасПункт as Тип", 
+                        "Db_Locale, Db_LocaleType", 
+                        "WHERE Db_Locale.КодТипа = Db_LocaleType.Код").Tables[0].DefaultView;
+                    break;
+            }
             database.Dispose();
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
             DirTabUpdate();
+        }
+
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MainTabUpdate(tabControlMain.SelectedIndex);
         }
     }
 }

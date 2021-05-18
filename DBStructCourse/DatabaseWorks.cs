@@ -49,9 +49,9 @@ namespace DBStructCourse
         // Реализация работы с базой
         // Вывод таблицы
 
-        public DataSet ReturnTable(string TableName)
+        public DataSet ReturnTable(string Columns, string TablesName, string Arguments)
         {
-            SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT * FROM {TableName}", connection);
+            SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT {Columns} FROM {TablesName} {Arguments}", connection);
             DataSet dataSet = new DataSet();
             sqlData.Fill(dataSet);
             return dataSet;
@@ -110,6 +110,10 @@ namespace DBStructCourse
                 return e.ToString();
             }
         }
+
+        // База
+
+
 
     }
 }
