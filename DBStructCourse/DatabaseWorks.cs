@@ -113,7 +113,18 @@ namespace DBStructCourse
 
         // База
 
-
+        public string AddLocale(string Name, string ShName, int TypeCode)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Db_Locale (Название_НасПункта, Кр_Название_НасПункта, КодТипа) VALUES ('{Name}', '{ShName}', {TypeCode})", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
 
     }
 }

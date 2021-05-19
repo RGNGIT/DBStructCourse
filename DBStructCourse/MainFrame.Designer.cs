@@ -31,9 +31,25 @@ namespace DBStructCourse
         {
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxLocaleType = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxLocaleShortName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxLocaleName = new System.Windows.Forms.TextBox();
+            this.dataGridViewLocale = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBoxLocaleEvent = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBoxEventType = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxEventShortName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxEventName = new System.Windows.Forms.TextBox();
+            this.dataGridViewEvent = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.buttonAddDir = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -53,27 +69,16 @@ namespace DBStructCourse
             this.textBoxDirEventType = new System.Windows.Forms.TextBox();
             this.dataGridViewDir = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.dataGridViewEvent = new System.Windows.Forms.DataGridView();
-            this.textBoxEventName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxEventShortName = new System.Windows.Forms.TextBox();
-            this.comboBoxEventType = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBoxLocaleEvent = new System.Windows.Forms.ComboBox();
-            this.dataGridViewLocale = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxLocaleShortName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBoxLocaleName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBoxLocaleType = new System.Windows.Forms.ComboBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
+            this.buttonAddLocale = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -81,9 +86,9 @@ namespace DBStructCourse
             this.tabPage9.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
             this.tabPage11.SuspendLayout();
+            this.tabPage12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -95,6 +100,7 @@ namespace DBStructCourse
             this.tabControlMain.Controls.Add(this.tabPage5);
             this.tabControlMain.Controls.Add(this.tabPage6);
             this.tabControlMain.Controls.Add(this.tabPage11);
+            this.tabControlMain.Controls.Add(this.tabPage12);
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -104,6 +110,7 @@ namespace DBStructCourse
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonAddLocale);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.comboBoxLocaleType);
             this.tabPage1.Controls.Add(this.label10);
@@ -118,6 +125,64 @@ namespace DBStructCourse
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Населенный пункт";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(131, 13);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Тип населенного пункта";
+            // 
+            // comboBoxLocaleType
+            // 
+            this.comboBoxLocaleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLocaleType.FormattingEnabled = true;
+            this.comboBoxLocaleType.Location = new System.Drawing.Point(8, 101);
+            this.comboBoxLocaleType.Name = "comboBoxLocaleType";
+            this.comboBoxLocaleType.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxLocaleType.TabIndex = 13;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 46);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(165, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Кр. Название (не обязательно)";
+            // 
+            // textBoxLocaleShortName
+            // 
+            this.textBoxLocaleShortName.Location = new System.Drawing.Point(8, 62);
+            this.textBoxLocaleShortName.Name = "textBoxLocaleShortName";
+            this.textBoxLocaleShortName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxLocaleShortName.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Название (обязательно)";
+            // 
+            // textBoxLocaleName
+            // 
+            this.textBoxLocaleName.Location = new System.Drawing.Point(8, 22);
+            this.textBoxLocaleName.Name = "textBoxLocaleName";
+            this.textBoxLocaleName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxLocaleName.TabIndex = 9;
+            // 
+            // dataGridViewLocale
+            // 
+            this.dataGridViewLocale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLocale.Location = new System.Drawing.Point(381, 6);
+            this.dataGridViewLocale.Name = "dataGridViewLocale";
+            this.dataGridViewLocale.Size = new System.Drawing.Size(726, 606);
+            this.dataGridViewLocale.TabIndex = 2;
             // 
             // tabPage2
             // 
@@ -157,6 +222,82 @@ namespace DBStructCourse
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Мероприятие";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 125);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(176, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Населенный пункт (обязательно)";
+            // 
+            // comboBoxLocaleEvent
+            // 
+            this.comboBoxLocaleEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLocaleEvent.FormattingEnabled = true;
+            this.comboBoxLocaleEvent.Location = new System.Drawing.Point(8, 141);
+            this.comboBoxLocaleEvent.Name = "comboBoxLocaleEvent";
+            this.comboBoxLocaleEvent.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxLocaleEvent.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 85);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Тип мероприятия";
+            // 
+            // comboBoxEventType
+            // 
+            this.comboBoxEventType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEventType.FormattingEnabled = true;
+            this.comboBoxEventType.Location = new System.Drawing.Point(8, 101);
+            this.comboBoxEventType.Name = "comboBoxEventType";
+            this.comboBoxEventType.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxEventType.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Кр. Название (не обязательно)";
+            // 
+            // textBoxEventShortName
+            // 
+            this.textBoxEventShortName.Location = new System.Drawing.Point(8, 62);
+            this.textBoxEventShortName.Name = "textBoxEventShortName";
+            this.textBoxEventShortName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxEventShortName.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Название (обязательно)";
+            // 
+            // textBoxEventName
+            // 
+            this.textBoxEventName.Location = new System.Drawing.Point(8, 22);
+            this.textBoxEventName.Name = "textBoxEventName";
+            this.textBoxEventName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxEventName.TabIndex = 5;
+            // 
+            // dataGridViewEvent
+            // 
+            this.dataGridViewEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEvent.Location = new System.Drawing.Point(381, 6);
+            this.dataGridViewEvent.Name = "dataGridViewEvent";
+            this.dataGridViewEvent.Size = new System.Drawing.Size(726, 606);
+            this.dataGridViewEvent.TabIndex = 1;
             // 
             // tabPage5
             // 
@@ -342,140 +483,6 @@ namespace DBStructCourse
             this.tabPage6.Text = "Отчет";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewEvent
-            // 
-            this.dataGridViewEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEvent.Location = new System.Drawing.Point(381, 6);
-            this.dataGridViewEvent.Name = "dataGridViewEvent";
-            this.dataGridViewEvent.Size = new System.Drawing.Size(726, 606);
-            this.dataGridViewEvent.TabIndex = 1;
-            // 
-            // textBoxEventName
-            // 
-            this.textBoxEventName.Location = new System.Drawing.Point(8, 22);
-            this.textBoxEventName.Name = "textBoxEventName";
-            this.textBoxEventName.Size = new System.Drawing.Size(367, 20);
-            this.textBoxEventName.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Название (обязательно)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Кр. Название (не обязательно)";
-            // 
-            // textBoxEventShortName
-            // 
-            this.textBoxEventShortName.Location = new System.Drawing.Point(8, 62);
-            this.textBoxEventShortName.Name = "textBoxEventShortName";
-            this.textBoxEventShortName.Size = new System.Drawing.Size(367, 20);
-            this.textBoxEventShortName.TabIndex = 7;
-            // 
-            // comboBoxEventType
-            // 
-            this.comboBoxEventType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEventType.FormattingEnabled = true;
-            this.comboBoxEventType.Location = new System.Drawing.Point(8, 101);
-            this.comboBoxEventType.Name = "comboBoxEventType";
-            this.comboBoxEventType.Size = new System.Drawing.Size(367, 21);
-            this.comboBoxEventType.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 85);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Тип мероприятия";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 125);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(176, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Населенный пункт (обязательно)";
-            // 
-            // comboBoxLocaleEvent
-            // 
-            this.comboBoxLocaleEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLocaleEvent.FormattingEnabled = true;
-            this.comboBoxLocaleEvent.Location = new System.Drawing.Point(8, 141);
-            this.comboBoxLocaleEvent.Name = "comboBoxLocaleEvent";
-            this.comboBoxLocaleEvent.Size = new System.Drawing.Size(367, 21);
-            this.comboBoxLocaleEvent.TabIndex = 11;
-            // 
-            // dataGridViewLocale
-            // 
-            this.dataGridViewLocale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLocale.Location = new System.Drawing.Point(381, 6);
-            this.dataGridViewLocale.Name = "dataGridViewLocale";
-            this.dataGridViewLocale.Size = new System.Drawing.Size(726, 606);
-            this.dataGridViewLocale.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 46);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Кр. Название (не обязательно)";
-            // 
-            // textBoxLocaleShortName
-            // 
-            this.textBoxLocaleShortName.Location = new System.Drawing.Point(8, 62);
-            this.textBoxLocaleShortName.Name = "textBoxLocaleShortName";
-            this.textBoxLocaleShortName.Size = new System.Drawing.Size(367, 20);
-            this.textBoxLocaleShortName.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 6);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Название (обязательно)";
-            // 
-            // textBoxLocaleName
-            // 
-            this.textBoxLocaleName.Location = new System.Drawing.Point(8, 22);
-            this.textBoxLocaleName.Name = "textBoxLocaleName";
-            this.textBoxLocaleName.Size = new System.Drawing.Size(367, 20);
-            this.textBoxLocaleName.TabIndex = 9;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 85);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(131, 13);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Тип населенного пункта";
-            // 
-            // comboBoxLocaleType
-            // 
-            this.comboBoxLocaleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLocaleType.FormattingEnabled = true;
-            this.comboBoxLocaleType.Location = new System.Drawing.Point(8, 101);
-            this.comboBoxLocaleType.Name = "comboBoxLocaleType";
-            this.comboBoxLocaleType.Size = new System.Drawing.Size(367, 21);
-            this.comboBoxLocaleType.TabIndex = 13;
-            // 
             // tabPage11
             // 
             this.tabPage11.Controls.Add(this.listBoxMainLog);
@@ -495,6 +502,35 @@ namespace DBStructCourse
             this.listBoxMainLog.Size = new System.Drawing.Size(1095, 602);
             this.listBoxMainLog.TabIndex = 1;
             // 
+            // tabPage12
+            // 
+            this.tabPage12.Controls.Add(this.dataGridViewListReturner);
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(1113, 621);
+            this.tabPage12.TabIndex = 7;
+            this.tabPage12.Text = "Service";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewListReturner
+            // 
+            this.dataGridViewListReturner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListReturner.Location = new System.Drawing.Point(8, 6);
+            this.dataGridViewListReturner.Name = "dataGridViewListReturner";
+            this.dataGridViewListReturner.Size = new System.Drawing.Size(1095, 606);
+            this.dataGridViewListReturner.TabIndex = 0;
+            // 
+            // buttonAddLocale
+            // 
+            this.buttonAddLocale.Location = new System.Drawing.Point(8, 589);
+            this.buttonAddLocale.Name = "buttonAddLocale";
+            this.buttonAddLocale.Size = new System.Drawing.Size(367, 23);
+            this.buttonAddLocale.TabIndex = 15;
+            this.buttonAddLocale.Text = "Добавить населенный пункт";
+            this.buttonAddLocale.UseVisualStyleBackColor = true;
+            this.buttonAddLocale.Click += new System.EventHandler(this.buttonAddLocale_Click);
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,8 +542,10 @@ namespace DBStructCourse
             this.tabControlMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
@@ -519,9 +557,9 @@ namespace DBStructCourse
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).EndInit();
             this.tabPage11.ResumeLayout(false);
+            this.tabPage12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,6 +608,9 @@ namespace DBStructCourse
         private System.Windows.Forms.ComboBox comboBoxLocaleType;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.ListBox listBoxMainLog;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.DataGridView dataGridViewListReturner;
+        private System.Windows.Forms.Button buttonAddLocale;
     }
 }
 
