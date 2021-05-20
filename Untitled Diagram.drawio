@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-20T08:59:48.849Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="Myx56TO7VjI9jgEpfXAD" version="14.6.13" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-20T09:01:18.755Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="_HYDEiNaX36ZYqLEBNFS" version="14.6.13" type="github">
   <diagram id="JcpFo3pnrb1yveTzviW8" name="Page-1">
     <mxGraphModel dx="1296" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -119,12 +119,6 @@
         <mxCell id="RXx_gNftj5iXkbYdSQBd-28" value="Список сооружений" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="980" y="780" width="130" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="RXx_gNftj5iXkbYdSQBd-30" value="" style="endArrow=none;html=1;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="200" y="980" as="sourcePoint" />
-            <mxPoint x="920" y="980" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="RXx_gNftj5iXkbYdSQBd-33" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="RXx_gNftj5iXkbYdSQBd-12" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="200" y="980" as="sourcePoint" />
@@ -155,12 +149,6 @@
             <mxPoint x="840" y="900" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="RXx_gNftj5iXkbYdSQBd-38" value="" style="endArrow=none;html=1;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="193.00000000000006" y="410" as="sourcePoint" />
-            <mxPoint x="920" y="410" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="RXx_gNftj5iXkbYdSQBd-39" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="RXx_gNftj5iXkbYdSQBd-24" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="920" y="410" as="sourcePoint" />
@@ -189,18 +177,6 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="193" y="410" as="sourcePoint" />
             <mxPoint x="209.9999999999999" y="400" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="RXx_gNftj5iXkbYdSQBd-45" value="" style="endArrow=none;html=1;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="560" y="1100" as="sourcePoint" />
-            <mxPoint x="560" y="980" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="RXx_gNftj5iXkbYdSQBd-46" value="" style="endArrow=none;html=1;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="559.5" y="410" as="sourcePoint" />
-            <mxPoint x="559.5" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="RXx_gNftj5iXkbYdSQBd-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="RXx_gNftj5iXkbYdSQBd-47" edge="1">
