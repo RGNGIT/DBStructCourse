@@ -31,6 +31,7 @@ namespace DBStructCourse
         {
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonAddLocale = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxLocaleType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,10 +74,26 @@ namespace DBStructCourse
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.buttonAddLocale = new System.Windows.Forms.Button();
+            this.dataGridViewRegion = new System.Windows.Forms.DataGridView();
+            this.dataGridViewRegionPhones = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxRegionShortName = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxRegionName = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxRegionEmail = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBoxRegionLocale = new System.Windows.Forms.ComboBox();
+            this.buttonAddRegion = new System.Windows.Forms.Button();
+            this.comboBoxPhoneRegion = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.comboBoxPhoneRegionPhone = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.buttonConnectPhone = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).BeginInit();
             this.tabPage5.SuspendLayout();
@@ -89,6 +106,8 @@ namespace DBStructCourse
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegionPhones)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -125,6 +144,16 @@ namespace DBStructCourse
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Населенный пункт";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddLocale
+            // 
+            this.buttonAddLocale.Location = new System.Drawing.Point(8, 589);
+            this.buttonAddLocale.Name = "buttonAddLocale";
+            this.buttonAddLocale.Size = new System.Drawing.Size(367, 23);
+            this.buttonAddLocale.TabIndex = 15;
+            this.buttonAddLocale.Text = "Добавить населенный пункт";
+            this.buttonAddLocale.UseVisualStyleBackColor = true;
+            this.buttonAddLocale.Click += new System.EventHandler(this.buttonAddLocale_Click);
             // 
             // label12
             // 
@@ -186,6 +215,22 @@ namespace DBStructCourse
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonConnectPhone);
+            this.tabPage2.Controls.Add(this.comboBoxPhoneRegionPhone);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.comboBoxPhoneRegion);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.buttonAddRegion);
+            this.tabPage2.Controls.Add(this.comboBoxRegionLocale);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.textBoxRegionEmail);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.textBoxRegionShortName);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.textBoxRegionName);
+            this.tabPage2.Controls.Add(this.dataGridViewRegionPhones);
+            this.tabPage2.Controls.Add(this.dataGridViewRegion);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -521,15 +566,143 @@ namespace DBStructCourse
             this.dataGridViewListReturner.Size = new System.Drawing.Size(1095, 606);
             this.dataGridViewListReturner.TabIndex = 0;
             // 
-            // buttonAddLocale
+            // dataGridViewRegion
             // 
-            this.buttonAddLocale.Location = new System.Drawing.Point(8, 589);
-            this.buttonAddLocale.Name = "buttonAddLocale";
-            this.buttonAddLocale.Size = new System.Drawing.Size(367, 23);
-            this.buttonAddLocale.TabIndex = 15;
-            this.buttonAddLocale.Text = "Добавить населенный пункт";
-            this.buttonAddLocale.UseVisualStyleBackColor = true;
-            this.buttonAddLocale.Click += new System.EventHandler(this.buttonAddLocale_Click);
+            this.dataGridViewRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRegion.Location = new System.Drawing.Point(381, 6);
+            this.dataGridViewRegion.Name = "dataGridViewRegion";
+            this.dataGridViewRegion.Size = new System.Drawing.Size(726, 356);
+            this.dataGridViewRegion.TabIndex = 3;
+            // 
+            // dataGridViewRegionPhones
+            // 
+            this.dataGridViewRegionPhones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRegionPhones.Location = new System.Drawing.Point(381, 368);
+            this.dataGridViewRegionPhones.Name = "dataGridViewRegionPhones";
+            this.dataGridViewRegionPhones.Size = new System.Drawing.Size(726, 244);
+            this.dataGridViewRegionPhones.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(165, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Кр. Название (не обязательно)";
+            // 
+            // textBoxRegionShortName
+            // 
+            this.textBoxRegionShortName.Location = new System.Drawing.Point(8, 62);
+            this.textBoxRegionShortName.Name = "textBoxRegionShortName";
+            this.textBoxRegionShortName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxRegionShortName.TabIndex = 15;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(8, 6);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(131, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Название (обязательно)";
+            // 
+            // textBoxRegionName
+            // 
+            this.textBoxRegionName.Location = new System.Drawing.Point(8, 22);
+            this.textBoxRegionName.Name = "textBoxRegionName";
+            this.textBoxRegionName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxRegionName.TabIndex = 13;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(8, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Эл. Почта";
+            // 
+            // textBoxRegionEmail
+            // 
+            this.textBoxRegionEmail.Location = new System.Drawing.Point(8, 101);
+            this.textBoxRegionEmail.Name = "textBoxRegionEmail";
+            this.textBoxRegionEmail.Size = new System.Drawing.Size(367, 20);
+            this.textBoxRegionEmail.TabIndex = 18;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 124);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(102, 13);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Населенный пункт";
+            // 
+            // comboBoxRegionLocale
+            // 
+            this.comboBoxRegionLocale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRegionLocale.FormattingEnabled = true;
+            this.comboBoxRegionLocale.Location = new System.Drawing.Point(8, 140);
+            this.comboBoxRegionLocale.Name = "comboBoxRegionLocale";
+            this.comboBoxRegionLocale.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxRegionLocale.TabIndex = 20;
+            // 
+            // buttonAddRegion
+            // 
+            this.buttonAddRegion.Location = new System.Drawing.Point(8, 339);
+            this.buttonAddRegion.Name = "buttonAddRegion";
+            this.buttonAddRegion.Size = new System.Drawing.Size(367, 23);
+            this.buttonAddRegion.TabIndex = 21;
+            this.buttonAddRegion.Text = "Добавить областную организацию";
+            this.buttonAddRegion.UseVisualStyleBackColor = true;
+            this.buttonAddRegion.Click += new System.EventHandler(this.buttonAddRegion_Click);
+            // 
+            // comboBoxPhoneRegion
+            // 
+            this.comboBoxPhoneRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPhoneRegion.FormattingEnabled = true;
+            this.comboBoxPhoneRegion.Location = new System.Drawing.Point(8, 393);
+            this.comboBoxPhoneRegion.Name = "comboBoxPhoneRegion";
+            this.comboBoxPhoneRegion.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxPhoneRegion.TabIndex = 23;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(8, 377);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(130, 13);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Областная организация";
+            // 
+            // comboBoxPhoneRegionPhone
+            // 
+            this.comboBoxPhoneRegionPhone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPhoneRegionPhone.FormattingEnabled = true;
+            this.comboBoxPhoneRegionPhone.Location = new System.Drawing.Point(8, 433);
+            this.comboBoxPhoneRegionPhone.Name = "comboBoxPhoneRegionPhone";
+            this.comboBoxPhoneRegionPhone.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxPhoneRegionPhone.TabIndex = 25;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(8, 417);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Телефон";
+            // 
+            // buttonConnectPhone
+            // 
+            this.buttonConnectPhone.Location = new System.Drawing.Point(8, 589);
+            this.buttonConnectPhone.Name = "buttonConnectPhone";
+            this.buttonConnectPhone.Size = new System.Drawing.Size(367, 23);
+            this.buttonConnectPhone.TabIndex = 26;
+            this.buttonConnectPhone.Text = "Связать телефон-организацию";
+            this.buttonConnectPhone.UseVisualStyleBackColor = true;
+            this.buttonConnectPhone.Click += new System.EventHandler(this.buttonConnectPhone_Click);
             // 
             // MainFrame
             // 
@@ -539,10 +712,13 @@ namespace DBStructCourse
             this.Controls.Add(this.tabControlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainFrame";
+            this.Text = "Спортивные сооружения области";
             this.tabControlMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).EndInit();
@@ -560,6 +736,8 @@ namespace DBStructCourse
             this.tabPage11.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegionPhones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -611,6 +789,22 @@ namespace DBStructCourse
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.DataGridView dataGridViewListReturner;
         private System.Windows.Forms.Button buttonAddLocale;
+        private System.Windows.Forms.DataGridView dataGridViewRegion;
+        private System.Windows.Forms.ComboBox comboBoxRegionLocale;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxRegionEmail;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBoxRegionShortName;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxRegionName;
+        private System.Windows.Forms.DataGridView dataGridViewRegionPhones;
+        private System.Windows.Forms.Button buttonAddRegion;
+        private System.Windows.Forms.ComboBox comboBoxPhoneRegionPhone;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox comboBoxPhoneRegion;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button buttonConnectPhone;
     }
 }
 

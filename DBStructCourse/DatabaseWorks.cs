@@ -126,5 +126,18 @@ namespace DBStructCourse
             }
         }
 
+        public string AddRegion(string Name, string ShName, string email, int LocaleCode)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO Db_Region (Название_ОблОрг, Кр_Назв_ОблОрг, ЭлАдрес_ОблОрг, КодНасПункта) VALUES ('{Name}', '{ShName}', '{email}', {LocaleCode})", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
     }
 }
