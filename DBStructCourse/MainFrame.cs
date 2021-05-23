@@ -134,6 +134,13 @@ namespace DBStructCourse
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
                     break;
+                case 6:
+                    dataGridViewListReturner.DataSource = database.ReturnTable("Название_ОблОрг", "Db_Region", null).Tables[0].DefaultView;
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    {
+                        Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+                    }
+                    break;
             }
             database.Dispose();
             return Temp;
@@ -143,6 +150,8 @@ namespace DBStructCourse
         {
             comboBoxLocaleType.Items.Clear(); // При добавлении нас.пункта
             comboBoxRegionLocale.Items.Clear(); // При добавлении Облорга
+            comboBoxPhoneRegion.Items.Clear(); // При связи телефонов
+            comboBoxPhoneRegionPhone.Items.Clear(); // При связи телефонов
             foreach(string i in BufferListUpdate(0))
             {
                 comboBoxLocaleType.Items.Add(i);
@@ -150,6 +159,14 @@ namespace DBStructCourse
             foreach (string i in BufferListUpdate(5))
             {
                 comboBoxRegionLocale.Items.Add(i);
+            }
+            foreach(string i in BufferListUpdate(6))
+            {
+                comboBoxPhoneRegion.Items.Add(i);
+            }
+            foreach(string i in BufferListUpdate(2))
+            {
+                comboBoxPhoneRegionPhone.Items.Add(i);
             }
         }
 
@@ -197,9 +214,82 @@ namespace DBStructCourse
             database.Dispose();
         }
 
+        // Работа с телефонами
+
         private void buttonConnectPhone_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void comboBoxPhoneRegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewRegionPhones.DataSource = database.ReturnTable(
+                "Db_Region.Название_ОблОрг, Db_Phones.Тип_Телефона, Db_Phones.Номер",
+                "Db_Region, Db_Phones, Col_RegionsAndPhones",
+                $"WHERE Col_RegionsAndPhones.КодРегиона = {GetDirCode("Db_Region", comboBoxPhoneRegion.SelectedItem.ToString(), 1)} " +
+                $"AND Col_RegionsAndPhones.КодТелефона = Db_Phones.Код");
+            database.Dispose();
+            */
+        }
+
+        private void comboBoxPhoneRegionPhone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewListReturner.DataSource = database.ReturnTable("*", "Db_Phones", null).Tables[0].DefaultView;
+            for(int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+            {
+                if(comboBoxPhoneRegionPhone.SelectedItem.ToString() == dataGridViewListReturner.Rows[i].Cells[2].Value.ToString())
+                {
+                    labelPhone.Text = $"Телефон ({dataGridViewListReturner.Rows[i].Cells[1].Value})";
+                }
+            }
+            database.Dispose();
+        }
+
+        // Обновление и удаление данных справочников
+
+        private void buttonDirUpdate_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            switch(tabControl2.SelectedIndex)
+            {
+                case 0:
+                    listBoxMainLog.Items.Add(database.UpdateDirectory(
+                        "Db_Phones",
+                        $"Тип_Телефона = '{textBoxDirPhoneType.Text}', Номер = '{textBoxDirPhoneNum.Text}'",
+                        $"Db_Phones.Код = {dataGridViewDir.SelectedRows[0].Cells[0].Value}"));
+                    break;
+                case 1:
+                    listBoxMainLog.Items.Add(database.UpdateDirectory(
+                        "Db_LocaleType",
+                        $"ТипНасПункт = '{textBoxDirLocaleType.Text}'",
+                        $"Db_LocaleType.Код = {dataGridViewDir.SelectedRows[0].Cells[0].Value}"));
+                    break;
+                case 2:
+                    listBoxMainLog.Items.Add(database.UpdateDirectory(
+                        "Db_ConstructType",
+                        $"Тип_Сооруж = '{textBoxDirConstructType.Text}'",
+                        $"Db_ConstructType.Код = {dataGridViewDir.SelectedRows[0].Cells[0].Value}"));
+                    break;
+                case 3:
+                    listBoxMainLog.Items.Add(database.UpdateDirectory(
+                        "Db_EventType",
+                        $"Тип_Мероприятия = '{textBoxDirEventType.Text}'",
+                        $"Db_EventType.Код = {dataGridViewDir.SelectedRows[0].Cells[0].Value}"));
+                    break;
+            }
+            DirTabUpdate();
+            database.Dispose();
+        }
+
+        private void buttonDirDelete_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
     }
 }

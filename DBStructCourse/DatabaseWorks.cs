@@ -59,6 +59,19 @@ namespace DBStructCourse
 
         // Справочники
 
+        public string UpdateDirectory(string Table, string Value, string Key)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"UPDATE {Table} SET {Value} WHERE {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
         public string AddPhonesData(string PhoneType, string Number) // Tab::(Db_Phones), Fields::(Тип_Телефона, Номер)
         {
             try
