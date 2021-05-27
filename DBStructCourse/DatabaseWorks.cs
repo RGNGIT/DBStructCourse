@@ -42,7 +42,7 @@ namespace DBStructCourse
 
         ~DatabaseWorks()
         {
-            connection.Close();
+            // connection.Close();
             Dispose(false);
         }
 
@@ -76,7 +76,9 @@ namespace DBStructCourse
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Db_Phones (Тип_Телефона, Номер) VALUES ('{PhoneType}', '{Number}')", connection);
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_Phones (Тип_Телефона, Номер) " +
+                    $"VALUES ('{PhoneType}', '{Number}')", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -89,7 +91,9 @@ namespace DBStructCourse
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Db_EventType (Тип_Мероприятия) VALUES ('{EventType}')", connection);
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_EventType (Тип_Мероприятия) " +
+                    $"VALUES ('{EventType}')", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -102,7 +106,9 @@ namespace DBStructCourse
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Db_ConstructType (Тип_Сооруж) VALUES ('{ConstructType}')", connection);
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_ConstructType (Тип_Сооруж) " +
+                    $"VALUES ('{ConstructType}')", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -115,7 +121,9 @@ namespace DBStructCourse
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Db_LocaleType (ТипНасПункт) VALUES ('{LocaleType}')", connection);
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_LocaleType (ТипНасПункт) " +
+                    $"VALUES ('{LocaleType}')", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -130,7 +138,9 @@ namespace DBStructCourse
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Db_Locale (Название_НасПункта, Кр_Название_НасПункта, КодТипа) VALUES ('{Name}', '{ShName}', {TypeCode})", connection);
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_Locale (Название_НасПункта, Кр_Название_НасПункта, КодТипа) " +
+                    $"VALUES ('{Name}', '{ShName}', {TypeCode})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -143,8 +153,29 @@ namespace DBStructCourse
         {
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO Db_Region (Название_ОблОрг, Кр_Назв_ОблОрг, ЭлАдрес_ОблОрг, КодНасПункта) VALUES ('{Name}', '{ShName}', '{email}', {LocaleCode})", connection);
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_Region (Название_ОблОрг, Кр_Назв_ОблОрг, ЭлАдрес_ОблОрг, КодНасПункта) " +
+                    $"VALUES ('{Name}', '{ShName}', '{email}', {LocaleCode})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string AddConstruct(string Name, string ShName, DateTime Date, int Capacity, float Square, int TypeCode, int RegionCode, string Address)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_Construct (Название_Сооруж, Кр_Название_Сооруж, ДатаПринятия_Сооруж, Вместимость_Сооруж, Площадь_Сооруж, КодТипа, КодОблорг) " +
+                    $"VALUES ('{Name}', '{ShName}', '{Date}', {Capacity}, {Square}, {TypeCode}, {RegionCode})", connection);
+                int Amount = command.ExecuteNonQuery();
+                command = new SqlCommand(
+                    $"INSERT INTO Db_Address (АдресЗнач) " +
+                    $"VALUES ('{Address}')", connection);
+                return $"Команда выполнена. Задействовано строк таблиц: {command.ExecuteNonQuery() + Amount}";
             }
             catch (Exception e)
             {

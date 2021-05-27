@@ -57,6 +57,7 @@ namespace DBStructCourse
             this.dataGridViewRegionPhones = new System.Windows.Forms.DataGridView();
             this.dataGridViewRegion = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridViewConstruct = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxLocaleEvent = new System.Windows.Forms.ComboBox();
@@ -68,6 +69,8 @@ namespace DBStructCourse
             this.textBoxEventName = new System.Windows.Forms.TextBox();
             this.dataGridViewEvent = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.buttonDirDelete = new System.Windows.Forms.Button();
+            this.buttonDirUpdate = new System.Windows.Forms.Button();
             this.buttonAddDir = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -90,9 +93,23 @@ namespace DBStructCourse
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.dataGridViewConstruct = new System.Windows.Forms.DataGridView();
-            this.buttonDirUpdate = new System.Windows.Forms.Button();
-            this.buttonDirDelete = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBoxConstructName = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxConstructShortName = new System.Windows.Forms.TextBox();
+            this.dateTimePickerConstructBalance = new System.Windows.Forms.DateTimePicker();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxConstructCapacity = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBoxConstructSquare = new System.Windows.Forms.TextBox();
+            this.comboBoxConstructType = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBoxConstructRegion = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.buttonAddConstruct = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxConstructAddress = new System.Windows.Forms.TextBox();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -100,6 +117,7 @@ namespace DBStructCourse
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegionPhones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegion)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConstruct)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).BeginInit();
             this.tabPage5.SuspendLayout();
@@ -112,7 +130,6 @@ namespace DBStructCourse
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConstruct)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -134,6 +151,7 @@ namespace DBStructCourse
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.buttonAddLocale);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.comboBoxLocaleType);
@@ -148,7 +166,6 @@ namespace DBStructCourse
             this.tabPage1.Size = new System.Drawing.Size(1113, 621);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Населенный пункт";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // buttonAddLocale
             // 
@@ -332,9 +349,9 @@ namespace DBStructCourse
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(8, 85);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.Size = new System.Drawing.Size(130, 13);
             this.label15.TabIndex = 17;
-            this.label15.Text = "Эл. Почта";
+            this.label15.Text = "Эл. Почта (обязательно)";
             // 
             // label13
             // 
@@ -386,6 +403,23 @@ namespace DBStructCourse
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.textBoxConstructAddress);
+            this.tabPage3.Controls.Add(this.buttonAddConstruct);
+            this.tabPage3.Controls.Add(this.comboBoxConstructRegion);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.comboBoxConstructType);
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.textBoxConstructSquare);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.textBoxConstructCapacity);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.dateTimePickerConstructBalance);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.textBoxConstructShortName);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.textBoxConstructName);
             this.tabPage3.Controls.Add(this.dataGridViewConstruct);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -394,6 +428,14 @@ namespace DBStructCourse
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Спортивное сооружение";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewConstruct
+            // 
+            this.dataGridViewConstruct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConstruct.Location = new System.Drawing.Point(381, 6);
+            this.dataGridViewConstruct.Name = "dataGridViewConstruct";
+            this.dataGridViewConstruct.Size = new System.Drawing.Size(726, 606);
+            this.dataGridViewConstruct.TabIndex = 1;
             // 
             // tabPage4
             // 
@@ -505,6 +547,27 @@ namespace DBStructCourse
             this.tabPage5.Text = "Справочник";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // buttonDirDelete
+            // 
+            this.buttonDirDelete.ForeColor = System.Drawing.Color.Red;
+            this.buttonDirDelete.Location = new System.Drawing.Point(3, 530);
+            this.buttonDirDelete.Name = "buttonDirDelete";
+            this.buttonDirDelete.Size = new System.Drawing.Size(372, 23);
+            this.buttonDirDelete.TabIndex = 4;
+            this.buttonDirDelete.Text = "Удалить";
+            this.buttonDirDelete.UseVisualStyleBackColor = true;
+            this.buttonDirDelete.Click += new System.EventHandler(this.buttonDirDelete_Click);
+            // 
+            // buttonDirUpdate
+            // 
+            this.buttonDirUpdate.Location = new System.Drawing.Point(3, 559);
+            this.buttonDirUpdate.Name = "buttonDirUpdate";
+            this.buttonDirUpdate.Size = new System.Drawing.Size(372, 23);
+            this.buttonDirUpdate.TabIndex = 3;
+            this.buttonDirUpdate.Text = "Изменить";
+            this.buttonDirUpdate.UseVisualStyleBackColor = true;
+            this.buttonDirUpdate.Click += new System.EventHandler(this.buttonDirUpdate_Click);
+            // 
             // buttonAddDir
             // 
             this.buttonAddDir.Location = new System.Drawing.Point(3, 588);
@@ -581,7 +644,7 @@ namespace DBStructCourse
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(364, 550);
+            this.tabPage8.Size = new System.Drawing.Size(364, 492);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Тип населенного пункта";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -609,7 +672,7 @@ namespace DBStructCourse
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(364, 550);
+            this.tabPage9.Size = new System.Drawing.Size(364, 492);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Тип сооружения";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -637,7 +700,7 @@ namespace DBStructCourse
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(364, 550);
+            this.tabPage10.Size = new System.Drawing.Size(364, 492);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Тип события";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -714,34 +777,147 @@ namespace DBStructCourse
             this.dataGridViewListReturner.Size = new System.Drawing.Size(1095, 606);
             this.dataGridViewListReturner.TabIndex = 0;
             // 
-            // dataGridViewConstruct
+            // label18
             // 
-            this.dataGridViewConstruct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewConstruct.Location = new System.Drawing.Point(381, 6);
-            this.dataGridViewConstruct.Name = "dataGridViewConstruct";
-            this.dataGridViewConstruct.Size = new System.Drawing.Size(726, 606);
-            this.dataGridViewConstruct.TabIndex = 1;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(8, 6);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(131, 13);
+            this.label18.TabIndex = 16;
+            this.label18.Text = "Название (обязательно)";
             // 
-            // buttonDirUpdate
+            // textBoxConstructName
             // 
-            this.buttonDirUpdate.Location = new System.Drawing.Point(3, 559);
-            this.buttonDirUpdate.Name = "buttonDirUpdate";
-            this.buttonDirUpdate.Size = new System.Drawing.Size(372, 23);
-            this.buttonDirUpdate.TabIndex = 3;
-            this.buttonDirUpdate.Text = "Изменить";
-            this.buttonDirUpdate.UseVisualStyleBackColor = true;
-            this.buttonDirUpdate.Click += new System.EventHandler(this.buttonDirUpdate_Click);
+            this.textBoxConstructName.Location = new System.Drawing.Point(8, 22);
+            this.textBoxConstructName.Name = "textBoxConstructName";
+            this.textBoxConstructName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructName.TabIndex = 15;
             // 
-            // buttonDirDelete
+            // label19
             // 
-            this.buttonDirDelete.ForeColor = System.Drawing.Color.Red;
-            this.buttonDirDelete.Location = new System.Drawing.Point(3, 530);
-            this.buttonDirDelete.Name = "buttonDirDelete";
-            this.buttonDirDelete.Size = new System.Drawing.Size(372, 23);
-            this.buttonDirDelete.TabIndex = 4;
-            this.buttonDirDelete.Text = "Удалить";
-            this.buttonDirDelete.UseVisualStyleBackColor = true;
-            this.buttonDirDelete.Click += new System.EventHandler(this.buttonDirDelete_Click);
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(8, 45);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(165, 13);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "Кр. Название (не обязательно)";
+            // 
+            // textBoxConstructShortName
+            // 
+            this.textBoxConstructShortName.Location = new System.Drawing.Point(8, 61);
+            this.textBoxConstructShortName.Name = "textBoxConstructShortName";
+            this.textBoxConstructShortName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructShortName.TabIndex = 17;
+            // 
+            // dateTimePickerConstructBalance
+            // 
+            this.dateTimePickerConstructBalance.Location = new System.Drawing.Point(8, 100);
+            this.dateTimePickerConstructBalance.Name = "dateTimePickerConstructBalance";
+            this.dateTimePickerConstructBalance.Size = new System.Drawing.Size(367, 20);
+            this.dateTimePickerConstructBalance.TabIndex = 19;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 84);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(137, 13);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "Дата принятия на баланс";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(8, 123);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(150, 13);
+            this.label21.TabIndex = 22;
+            this.label21.Text = "Вместимость (обязательно)";
+            // 
+            // textBoxConstructCapacity
+            // 
+            this.textBoxConstructCapacity.Location = new System.Drawing.Point(8, 139);
+            this.textBoxConstructCapacity.Name = "textBoxConstructCapacity";
+            this.textBoxConstructCapacity.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructCapacity.TabIndex = 21;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 162);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(128, 13);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Площадь (обязательно)";
+            // 
+            // textBoxConstructSquare
+            // 
+            this.textBoxConstructSquare.Location = new System.Drawing.Point(8, 178);
+            this.textBoxConstructSquare.Name = "textBoxConstructSquare";
+            this.textBoxConstructSquare.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructSquare.TabIndex = 23;
+            // 
+            // comboBoxConstructType
+            // 
+            this.comboBoxConstructType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConstructType.FormattingEnabled = true;
+            this.comboBoxConstructType.Location = new System.Drawing.Point(8, 256);
+            this.comboBoxConstructType.Name = "comboBoxConstructType";
+            this.comboBoxConstructType.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxConstructType.TabIndex = 26;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 240);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(90, 13);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "Тип сооружения";
+            // 
+            // comboBoxConstructRegion
+            // 
+            this.comboBoxConstructRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConstructRegion.FormattingEnabled = true;
+            this.comboBoxConstructRegion.Location = new System.Drawing.Point(8, 296);
+            this.comboBoxConstructRegion.Name = "comboBoxConstructRegion";
+            this.comboBoxConstructRegion.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxConstructRegion.TabIndex = 28;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(8, 280);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(130, 13);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "Областная организация";
+            // 
+            // buttonAddConstruct
+            // 
+            this.buttonAddConstruct.Location = new System.Drawing.Point(8, 589);
+            this.buttonAddConstruct.Name = "buttonAddConstruct";
+            this.buttonAddConstruct.Size = new System.Drawing.Size(367, 23);
+            this.buttonAddConstruct.TabIndex = 29;
+            this.buttonAddConstruct.Text = "Добавить спортивное сооружение";
+            this.buttonAddConstruct.UseVisualStyleBackColor = true;
+            this.buttonAddConstruct.Click += new System.EventHandler(this.buttonAddConstruct_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(8, 201);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(112, 13);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "Адрес (обязательно)";
+            // 
+            // textBoxConstructAddress
+            // 
+            this.textBoxConstructAddress.Location = new System.Drawing.Point(8, 217);
+            this.textBoxConstructAddress.Name = "textBoxConstructAddress";
+            this.textBoxConstructAddress.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructAddress.TabIndex = 30;
             // 
             // MainFrame
             // 
@@ -761,6 +937,8 @@ namespace DBStructCourse
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegionPhones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegion)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConstruct)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).EndInit();
@@ -778,7 +956,6 @@ namespace DBStructCourse
             this.tabPage11.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConstruct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -849,6 +1026,23 @@ namespace DBStructCourse
         private System.Windows.Forms.DataGridView dataGridViewConstruct;
         private System.Windows.Forms.Button buttonDirDelete;
         private System.Windows.Forms.Button buttonDirUpdate;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBoxConstructName;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBoxConstructShortName;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DateTimePicker dateTimePickerConstructBalance;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBoxConstructCapacity;
+        private System.Windows.Forms.ComboBox comboBoxConstructRegion;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox comboBoxConstructType;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBoxConstructSquare;
+        private System.Windows.Forms.Button buttonAddConstruct;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBoxConstructAddress;
     }
 }
 

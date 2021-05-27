@@ -80,6 +80,12 @@ namespace DBStructCourse
                         "Db_Region, Db_Locale",
                         "WHERE Db_Region.КодНасПункта = Db_Locale.Код").Tables[0].DefaultView;
                     break;
+                case 2:
+                    dataGridViewConstruct.DataSource = database.ReturnTable(
+                        "Db_Construct.Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_ConstructType.Тип_Сооруж as Тип, Db_Region.Название_ОблОрг as ОбластнаяОрганизация, Db_Address.АдресЗнач as Адрес",
+                        "Db_Construct, Db_ConstructType, Db_Region, Db_Address",
+                        "WHERE Db_Construct.КодТипа = Db_ConstructType.Код AND Db_Construct.КодОблорг = Db_Region.Код AND Db_Construct.Код = Db_Address.Код").Tables[0].DefaultView;
+                    break;
             }
             database.Dispose();
         }
@@ -152,6 +158,8 @@ namespace DBStructCourse
             comboBoxRegionLocale.Items.Clear(); // При добавлении Облорга
             comboBoxPhoneRegion.Items.Clear(); // При связи телефонов
             comboBoxPhoneRegionPhone.Items.Clear(); // При связи телефонов
+            comboBoxConstructType.Items.Clear(); // При добавлении сооружения
+            comboBoxConstructRegion.Items.Clear(); // При добавлении сооружения
             foreach(string i in BufferListUpdate(0))
             {
                 comboBoxLocaleType.Items.Add(i);
@@ -167,6 +175,14 @@ namespace DBStructCourse
             foreach(string i in BufferListUpdate(2))
             {
                 comboBoxPhoneRegionPhone.Items.Add(i);
+            }
+            foreach(string i in BufferListUpdate(3))
+            {
+                comboBoxConstructType.Items.Add(i);
+            }
+            foreach (string i in BufferListUpdate(6))
+            {
+                comboBoxConstructRegion.Items.Add(i);
             }
         }
 
@@ -201,7 +217,10 @@ namespace DBStructCourse
         private void buttonAddLocale_Click(object sender, EventArgs e) // Добавить нас.пункт
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            listBoxMainLog.Items.Add(database.AddLocale(textBoxLocaleName.Text, textBoxLocaleShortName.Text, GetDirCode("Db_LocaleType", comboBoxLocaleType.SelectedItem.ToString(), 1)));
+            listBoxMainLog.Items.Add(database.AddLocale(
+                textBoxLocaleName.Text, 
+                textBoxLocaleShortName.Text, 
+                GetDirCode("Db_LocaleType", comboBoxLocaleType.SelectedItem.ToString(), 1)));
             MainTabUpdate(0);
             database.Dispose();
         }
@@ -209,7 +228,11 @@ namespace DBStructCourse
         private void buttonAddRegion_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            listBoxMainLog.Items.Add(database.AddRegion(textBoxRegionName.Text, textBoxRegionShortName.Text, textBoxRegionEmail.Text, GetDirCode("Db_Locale", comboBoxRegionLocale.SelectedItem.ToString(), 1)));
+            listBoxMainLog.Items.Add(database.AddRegion(
+                textBoxRegionName.Text, 
+                textBoxRegionShortName.Text, 
+                textBoxRegionEmail.Text, 
+                GetDirCode("Db_Locale", comboBoxRegionLocale.SelectedItem.ToString(), 1)));
             MainTabUpdate(1);
             database.Dispose();
         }
@@ -291,5 +314,21 @@ namespace DBStructCourse
             database.Dispose();
         }
 
+        private void buttonAddConstruct_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            listBoxMainLog.Items.Add(
+                database.AddConstruct(
+                    textBoxConstructName.Text,
+                    textBoxConstructShortName.Text,
+                    dateTimePickerConstructBalance.Value,
+                    Convert.ToInt32(textBoxConstructCapacity.Text),
+                    Convert.ToInt32(textBoxConstructSquare.Text),
+                    GetDirCode("Db_ConstructType", comboBoxConstructType.SelectedItem.ToString(), 1),
+                    GetDirCode("Db_Region", comboBoxConstructRegion.SelectedItem.ToString(), 1),
+                    textBoxConstructAddress.Text));
+            MainTabUpdate(2);
+            database.Dispose();
+        }
     }
 }
