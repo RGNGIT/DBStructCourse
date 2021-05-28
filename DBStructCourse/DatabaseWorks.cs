@@ -197,5 +197,24 @@ namespace DBStructCourse
             }
         }
 
+        public string AddEvent(string Name, string ShName, DateTime Date, int PeopleAmount, int ConstructCode, int EventTypeCode, int LocaleCode, int EventCode)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Db_Event (Название_Мероприятия, Кр_Название_Мероприятия, КодТипа, КодНасПункта) " +
+                    $"VALUES ('{Name}', '{ShName}', {EventTypeCode}, {LocaleCode})", connection);
+                int Amount = command.ExecuteNonQuery();
+                command = new SqlCommand(
+                    $"INSERT INTO Db_EventDate (Код_Мероприятия, Код_Сооруж, ДатаПроведения, КолВо_Человек)" +
+                    $"VALUES ({EventCode}, {ConstructCode}, '{Date}', {PeopleAmount})");
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery() + Amount}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
     }
 }

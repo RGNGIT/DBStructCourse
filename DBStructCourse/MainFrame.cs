@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace DBStructCourse
 {
@@ -40,7 +34,7 @@ namespace DBStructCourse
         private void buttonAddDir_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            switch (tabControl2.SelectedIndex)
+            switch (tabControlDir.SelectedIndex)
             {
                 case 0:
                     listBoxMainLog.Items.Add(database.AddPhonesData(textBoxDirPhoneType.Text, textBoxDirPhoneNum.Text));
@@ -73,7 +67,7 @@ namespace DBStructCourse
         void DirTabUpdate()
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            dataGridViewDir.DataSource = database.ReturnTable("*", DirTables[tabControl2.SelectedIndex], null).Tables[0].DefaultView;
+            dataGridViewDir.DataSource = database.ReturnTable("*", DirTables[tabControlDir.SelectedIndex], null).Tables[0].DefaultView;
             database.Dispose();
         }
 
@@ -99,6 +93,12 @@ namespace DBStructCourse
                         "Db_Construct.Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_ConstructType.Тип_Сооруж as Тип, Db_Region.Название_ОблОрг as ОбластнаяОрганизация, Db_Address.АдресЗнач as Адрес",
                         "Db_Construct, Db_ConstructType, Db_Region, Db_Address",
                         "WHERE Db_Construct.КодТипа = Db_ConstructType.Код AND Db_Construct.КодОблорг = Db_Region.Код AND Db_Construct.Код = Db_Address.Код").Tables[0].DefaultView;
+                    break;
+                case 3:
+                    dataGridViewEvent.DataSource = database.ReturnTable(
+                        "Db_Event.Код, Название_Мероприятия as Название, Кр_Название_Мероприятия as КраткоеНазвание, Db_EventType.Тип_Мероприятия as Тип, Db_Locale.Название_НасПункта as НаселенныйПункт, Db_EventDate.ДатаПроведения as ДатаПроведения, Db_EventDate.КолВо_Человек as КоличествоЧеловек, Db_Construct.Название_Сооруж as Сооружение",
+                        "Db_Event, Db_EventType, Db_EventDate, Db_Locale, Db_Construct",
+                        "WHERE Db_Event.КодТипа = Db_EventType.Код AND Db_Event.КодНасПункта = Db_Locale.Код AND Db_EventDate.Код_Мероприятия = Db_Event.Код AND Db_EventDate.Код_Сооруж = Db_Construct.Код").Tables[0].DefaultView;
                     break;
             }
             database.Dispose();
@@ -161,6 +161,13 @@ namespace DBStructCourse
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
                     break;
+                case 7:
+                    dataGridViewListReturner.DataSource = database.ReturnTable("Название_Сооруж", "Db_Construct", null).Tables[0].DefaultView;
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    {
+                        Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
+                    }
+                    break;
             }
             database.Dispose();
             return Temp;
@@ -174,6 +181,9 @@ namespace DBStructCourse
             comboBoxPhoneRegionPhone.Items.Clear(); // При связи телефонов
             comboBoxConstructType.Items.Clear(); // При добавлении сооружения
             comboBoxConstructRegion.Items.Clear(); // При добавлении сооружения
+            comboBoxEventConstruct.Items.Clear();
+            comboBoxEventType.Items.Clear();
+            comboBoxLocaleEvent.Items.Clear();
             foreach(string i in BufferListUpdate(0))
             {
                 comboBoxLocaleType.Items.Add(i);
@@ -198,6 +208,18 @@ namespace DBStructCourse
             {
                 comboBoxConstructRegion.Items.Add(i);
             }
+            foreach(string i in BufferListUpdate(7))
+            {
+                comboBoxEventConstruct.Items.Add(i);
+            }
+            foreach(string i in BufferListUpdate(4))
+            {
+                comboBoxEventType.Items.Add(i);
+            }
+            foreach(string i in BufferListUpdate(5))
+            {
+                comboBoxLocaleEvent.Items.Add(i);
+            }
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,7 +237,7 @@ namespace DBStructCourse
 
         private void dataGridViewDir_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            switch (tabControl2.SelectedIndex)
+            switch (tabControlDir.SelectedIndex)
             {
                 case 0:
                     textBoxDirPhoneType.Text = dataGridViewDir.SelectedRows[0].Cells[1].Value.ToString();
@@ -317,7 +339,7 @@ namespace DBStructCourse
         private void buttonDirUpdate_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            switch(tabControl2.SelectedIndex)
+            switch(tabControlDir.SelectedIndex)
             {
                 case 0:
                     listBoxMainLog.Items.Add(database.UpdateDirectory(
@@ -372,5 +394,28 @@ namespace DBStructCourse
             database.Dispose();
         }
 
+        int GetAddingEventCode()
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewListReturner.DataSource = database.ReturnTable("*", "Db_Event", null).Tables[0].DefaultView;
+            database.Dispose();
+            return Convert.ToInt32(dataGridViewListReturner.Rows[dataGridViewListReturner.Rows.Count - 1].Cells[0].Value) + 1;
+        }
+
+        private void buttonEventAdd_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            listBoxMainLog.Items.Add(database.AddEvent(
+                textBoxEventName.Text,
+                textBoxEventShortName.Text,
+                dateTimePickerEventDate.Value,
+                Convert.ToInt32(textBoxEventPplAmount.Text),
+                GetDirCode("Db_Construct", comboBoxEventConstruct.SelectedItem.ToString(), 1),
+                GetDirCode("Db_EventType", comboBoxEventType.SelectedItem.ToString(), 1),
+                GetDirCode("Db_Locale", comboBoxLocaleEvent.SelectedItem.ToString(), 1),
+                GetAddingEventCode()));
+            MainTabUpdate(3);
+            database.Dispose();
+        }
     }
 }

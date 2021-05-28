@@ -89,7 +89,7 @@ namespace DBStructCourse
             this.buttonDirDelete = new System.Windows.Forms.Button();
             this.buttonDirUpdate = new System.Windows.Forms.Button();
             this.buttonAddDir = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabControlDir = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxDirPhoneNum = new System.Windows.Forms.TextBox();
@@ -112,6 +112,17 @@ namespace DBStructCourse
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
             this.label26 = new System.Windows.Forms.Label();
             this.buttonShowLog = new System.Windows.Forms.Button();
+            this.tabControlTasks = new System.Windows.Forms.TabControl();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
+            this.dateTimePickerEventDate = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBoxEventPplAmount = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.comboBoxEventConstruct = new System.Windows.Forms.ComboBox();
+            this.buttonEventAdd = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -123,15 +134,17 @@ namespace DBStructCourse
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.tabControlDir.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDir)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
+            this.tabControlTasks.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -584,6 +597,13 @@ namespace DBStructCourse
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.buttonEventAdd);
+            this.tabPage4.Controls.Add(this.label29);
+            this.tabPage4.Controls.Add(this.comboBoxEventConstruct);
+            this.tabPage4.Controls.Add(this.label28);
+            this.tabPage4.Controls.Add(this.textBoxEventPplAmount);
+            this.tabPage4.Controls.Add(this.label27);
+            this.tabPage4.Controls.Add(this.dateTimePickerEventDate);
             this.tabPage4.Controls.Add(this.label9);
             this.tabPage4.Controls.Add(this.comboBoxLocaleEvent);
             this.tabPage4.Controls.Add(this.label8);
@@ -604,7 +624,7 @@ namespace DBStructCourse
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 125);
+            this.label9.Location = new System.Drawing.Point(8, 245);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(176, 13);
             this.label9.TabIndex = 12;
@@ -614,7 +634,7 @@ namespace DBStructCourse
             // 
             this.comboBoxLocaleEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLocaleEvent.FormattingEnabled = true;
-            this.comboBoxLocaleEvent.Location = new System.Drawing.Point(8, 141);
+            this.comboBoxLocaleEvent.Location = new System.Drawing.Point(8, 261);
             this.comboBoxLocaleEvent.Name = "comboBoxLocaleEvent";
             this.comboBoxLocaleEvent.Size = new System.Drawing.Size(367, 21);
             this.comboBoxLocaleEvent.TabIndex = 11;
@@ -622,17 +642,17 @@ namespace DBStructCourse
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 85);
+            this.label8.Location = new System.Drawing.Point(8, 205);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.Size = new System.Drawing.Size(170, 13);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Тип мероприятия";
+            this.label8.Text = "Тип мероприятия (обязательно)";
             // 
             // comboBoxEventType
             // 
             this.comboBoxEventType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEventType.FormattingEnabled = true;
-            this.comboBoxEventType.Location = new System.Drawing.Point(8, 101);
+            this.comboBoxEventType.Location = new System.Drawing.Point(8, 221);
             this.comboBoxEventType.Name = "comboBoxEventType";
             this.comboBoxEventType.Size = new System.Drawing.Size(367, 21);
             this.comboBoxEventType.TabIndex = 9;
@@ -682,7 +702,7 @@ namespace DBStructCourse
             this.tabPage5.Controls.Add(this.buttonDirDelete);
             this.tabPage5.Controls.Add(this.buttonDirUpdate);
             this.tabPage5.Controls.Add(this.buttonAddDir);
-            this.tabPage5.Controls.Add(this.tabControl2);
+            this.tabPage5.Controls.Add(this.tabControlDir);
             this.tabPage5.Controls.Add(this.dataGridViewDir);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -723,18 +743,18 @@ namespace DBStructCourse
             this.buttonAddDir.UseVisualStyleBackColor = true;
             this.buttonAddDir.Click += new System.EventHandler(this.buttonAddDir_Click);
             // 
-            // tabControl2
+            // tabControlDir
             // 
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Controls.Add(this.tabPage10);
-            this.tabControl2.Location = new System.Drawing.Point(3, 6);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(372, 518);
-            this.tabControl2.TabIndex = 1;
-            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
+            this.tabControlDir.Controls.Add(this.tabPage7);
+            this.tabControlDir.Controls.Add(this.tabPage8);
+            this.tabControlDir.Controls.Add(this.tabPage9);
+            this.tabControlDir.Controls.Add(this.tabPage10);
+            this.tabControlDir.Location = new System.Drawing.Point(3, 6);
+            this.tabControlDir.Name = "tabControlDir";
+            this.tabControlDir.SelectedIndex = 0;
+            this.tabControlDir.Size = new System.Drawing.Size(372, 518);
+            this.tabControlDir.TabIndex = 1;
+            this.tabControlDir.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage7
             // 
@@ -877,6 +897,7 @@ namespace DBStructCourse
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.tabControlTasks);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -943,6 +964,109 @@ namespace DBStructCourse
             this.buttonShowLog.UseVisualStyleBackColor = true;
             this.buttonShowLog.Click += new System.EventHandler(this.buttonShowLog_Click);
             // 
+            // tabControlTasks
+            // 
+            this.tabControlTasks.Controls.Add(this.tabPage13);
+            this.tabControlTasks.Controls.Add(this.tabPage14);
+            this.tabControlTasks.Controls.Add(this.tabPage15);
+            this.tabControlTasks.Location = new System.Drawing.Point(6, 6);
+            this.tabControlTasks.Name = "tabControlTasks";
+            this.tabControlTasks.SelectedIndex = 0;
+            this.tabControlTasks.Size = new System.Drawing.Size(1101, 609);
+            this.tabControlTasks.TabIndex = 0;
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(1093, 583);
+            this.tabPage13.TabIndex = 0;
+            this.tabPage13.Text = "На заданную дату список спортивных сооружений заданного типа";
+            this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(1093, 583);
+            this.tabPage14.TabIndex = 1;
+            this.tabPage14.Text = "За заданный период динамика занятости спортивного сооружения в мероприятиях задан" +
+    "ного типа по месяцам";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(1093, 583);
+            this.tabPage15.TabIndex = 2;
+            this.tabPage15.Text = "На заданную дату список организаций, на балансе у которых находятся спортивные со" +
+    "оружения, их количество";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(8, 86);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(170, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Дата проведения (обязательно)";
+            // 
+            // dateTimePickerEventDate
+            // 
+            this.dateTimePickerEventDate.Location = new System.Drawing.Point(8, 102);
+            this.dateTimePickerEventDate.Name = "dateTimePickerEventDate";
+            this.dateTimePickerEventDate.Size = new System.Drawing.Size(367, 20);
+            this.dateTimePickerEventDate.TabIndex = 21;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(8, 126);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(184, 13);
+            this.label28.TabIndex = 24;
+            this.label28.Text = "Количество человек (обязательно)";
+            // 
+            // textBoxEventPplAmount
+            // 
+            this.textBoxEventPplAmount.Location = new System.Drawing.Point(8, 142);
+            this.textBoxEventPplAmount.Name = "textBoxEventPplAmount";
+            this.textBoxEventPplAmount.Size = new System.Drawing.Size(367, 20);
+            this.textBoxEventPplAmount.TabIndex = 23;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(8, 165);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(205, 13);
+            this.label29.TabIndex = 26;
+            this.label29.Text = "Спортивное сооружение (обязательно)";
+            // 
+            // comboBoxEventConstruct
+            // 
+            this.comboBoxEventConstruct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEventConstruct.FormattingEnabled = true;
+            this.comboBoxEventConstruct.Location = new System.Drawing.Point(8, 181);
+            this.comboBoxEventConstruct.Name = "comboBoxEventConstruct";
+            this.comboBoxEventConstruct.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxEventConstruct.TabIndex = 25;
+            // 
+            // buttonEventAdd
+            // 
+            this.buttonEventAdd.Location = new System.Drawing.Point(8, 589);
+            this.buttonEventAdd.Name = "buttonEventAdd";
+            this.buttonEventAdd.Size = new System.Drawing.Size(367, 23);
+            this.buttonEventAdd.TabIndex = 27;
+            this.buttonEventAdd.Text = "Добавить мероприятие";
+            this.buttonEventAdd.UseVisualStyleBackColor = true;
+            this.buttonEventAdd.Click += new System.EventHandler(this.buttonEventAdd_Click);
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -967,7 +1091,7 @@ namespace DBStructCourse
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvent)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
+            this.tabControlDir.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
@@ -977,9 +1101,11 @@ namespace DBStructCourse
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDir)).EndInit();
+            this.tabPage6.ResumeLayout(false);
             this.tabPage11.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
+            this.tabControlTasks.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -994,7 +1120,7 @@ namespace DBStructCourse
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView dataGridViewDir;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl tabControlDir;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
@@ -1069,6 +1195,17 @@ namespace DBStructCourse
         private System.Windows.Forms.TextBox textBoxConstructAddress;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button buttonShowLog;
+        private System.Windows.Forms.TabControl tabControlTasks;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.TabPage tabPage14;
+        private System.Windows.Forms.TabPage tabPage15;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox comboBoxEventConstruct;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox textBoxEventPplAmount;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEventDate;
+        private System.Windows.Forms.Button buttonEventAdd;
     }
 }
 
