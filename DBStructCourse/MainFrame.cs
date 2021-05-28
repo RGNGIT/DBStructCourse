@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace DBStructCourse
 {
@@ -15,6 +17,7 @@ namespace DBStructCourse
         public MainFrame()
         {
             InitializeComponent();
+            DirTabUpdate();
             MainTabUpdate(tabControlMain.SelectedIndex);
         }
 
@@ -22,6 +25,17 @@ namespace DBStructCourse
             "Server = localhost;" +
             "Integrated security = SSPI;" +
             "database = course";
+
+        private void buttonShowLog_Click(object sender, EventArgs e)
+        {
+            List<string> Temp = new List<string>();
+            foreach(string i in listBoxMainLog.Items)
+            {
+                Temp.Add(i);
+            }
+            File.WriteAllLines("log.txt", Temp);
+            Process.Start("log.txt");
+        }
 
         private void buttonAddDir_Click(object sender, EventArgs e)
         {
@@ -80,7 +94,7 @@ namespace DBStructCourse
                         "Db_Region, Db_Locale",
                         "WHERE Db_Region.КодНасПункта = Db_Locale.Код").Tables[0].DefaultView;
                     break;
-                case 2:
+                case 2: // Обновить таблицу сооружений
                     dataGridViewConstruct.DataSource = database.ReturnTable(
                         "Db_Construct.Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_ConstructType.Тип_Сооруж as Тип, Db_Region.Название_ОблОрг as ОбластнаяОрганизация, Db_Address.АдресЗнач as Адрес",
                         "Db_Construct, Db_ConstructType, Db_Region, Db_Address",
@@ -197,6 +211,28 @@ namespace DBStructCourse
             ComboUpdates();
         }
 
+        // Работа по выборке из гридов
+
+        private void dataGridViewDir_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            switch (tabControl2.SelectedIndex)
+            {
+                case 0:
+                    textBoxDirPhoneType.Text = dataGridViewDir.SelectedRows[0].Cells[1].Value.ToString();
+                    textBoxDirPhoneNum.Text = dataGridViewDir.SelectedRows[0].Cells[2].Value.ToString();
+                    break;
+                case 1:
+                    textBoxDirLocaleType.Text = dataGridViewDir.SelectedRows[0].Cells[1].Value.ToString();
+                    break;
+                case 2:
+                    textBoxDirConstructType.Text = dataGridViewDir.SelectedRows[0].Cells[1].Value.ToString();
+                    break;
+                case 3:
+                    textBoxDirEventType.Text = dataGridViewDir.SelectedRows[0].Cells[1].Value.ToString();
+                    break;
+            }
+        }
+
         // Добавления в главные таблички
 
         int GetDirCode(string Table, string ToFind, int TableIndex) // Вернуть код (итератор) из справочника
@@ -241,20 +277,25 @@ namespace DBStructCourse
 
         private void buttonConnectPhone_Click(object sender, EventArgs e)
         {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            listBoxMainLog.Items.Add(database.PhoneRegionConnect(GetDirCode("Db_Region", comboBoxPhoneRegion.Text, 1), GetDirCode("Db_Phones", comboBoxPhoneRegionPhone.Text, 2)));
+            UpdatePhones();
+            database.Dispose();
+        }
 
+        void UpdatePhones()
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewRegionPhones.DataSource = database.ReturnTable(
+                "Тип_Телефона as Тип, Номер",
+                "Db_Phones, Col_RegionsAndPhones",
+                $"WHERE Db_Phones.Код = Col_RegionsAndPhones.КодТелефона AND Col_RegionsAndPhones.КодРегиона = {GetDirCode("Db_Region", comboBoxPhoneRegion.Text, 1)}").Tables[0].DefaultView;
+            database.Dispose();
         }
 
         private void comboBoxPhoneRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            DatabaseWorks database = new DatabaseWorks(Credentials);
-            dataGridViewRegionPhones.DataSource = database.ReturnTable(
-                "Db_Region.Название_ОблОрг, Db_Phones.Тип_Телефона, Db_Phones.Номер",
-                "Db_Region, Db_Phones, Col_RegionsAndPhones",
-                $"WHERE Col_RegionsAndPhones.КодРегиона = {GetDirCode("Db_Region", comboBoxPhoneRegion.SelectedItem.ToString(), 1)} " +
-                $"AND Col_RegionsAndPhones.КодТелефона = Db_Phones.Код");
-            database.Dispose();
-            */
+            UpdatePhones();
         }
 
         private void comboBoxPhoneRegionPhone_SelectedIndexChanged(object sender, EventArgs e)
@@ -330,5 +371,6 @@ namespace DBStructCourse
             MainTabUpdate(2);
             database.Dispose();
         }
+
     }
 }

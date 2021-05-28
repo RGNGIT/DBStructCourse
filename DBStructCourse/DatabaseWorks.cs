@@ -42,7 +42,6 @@ namespace DBStructCourse
 
         ~DatabaseWorks()
         {
-            // connection.Close();
             Dispose(false);
         }
 
@@ -141,6 +140,21 @@ namespace DBStructCourse
                 SqlCommand command = new SqlCommand(
                     $"INSERT INTO Db_Locale (Название_НасПункта, Кр_Название_НасПункта, КодТипа) " +
                     $"VALUES ('{Name}', '{ShName}', {TypeCode})", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string PhoneRegionConnect(int RegCode, int PhoneCode)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Col_RegionsAndPhones (КодРегиона, КодТелефона) " +
+                    $"VALUES ({RegCode}, {PhoneCode})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)

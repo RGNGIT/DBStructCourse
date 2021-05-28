@@ -57,6 +57,23 @@ namespace DBStructCourse
             this.dataGridViewRegionPhones = new System.Windows.Forms.DataGridView();
             this.dataGridViewRegion = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxConstructAddress = new System.Windows.Forms.TextBox();
+            this.buttonAddConstruct = new System.Windows.Forms.Button();
+            this.comboBoxConstructRegion = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBoxConstructType = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBoxConstructSquare = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxConstructCapacity = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dateTimePickerConstructBalance = new System.Windows.Forms.DateTimePicker();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxConstructShortName = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBoxConstructName = new System.Windows.Forms.TextBox();
             this.dataGridViewConstruct = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
@@ -93,23 +110,8 @@ namespace DBStructCourse
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBoxConstructName = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBoxConstructShortName = new System.Windows.Forms.TextBox();
-            this.dateTimePickerConstructBalance = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBoxConstructCapacity = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBoxConstructSquare = new System.Windows.Forms.TextBox();
-            this.comboBoxConstructType = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.comboBoxConstructRegion = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.buttonAddConstruct = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBoxConstructAddress = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.buttonShowLog = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -182,9 +184,9 @@ namespace DBStructCourse
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(8, 85);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(131, 13);
+            this.label12.Size = new System.Drawing.Size(205, 13);
             this.label12.TabIndex = 14;
-            this.label12.Text = "Тип населенного пункта";
+            this.label12.Text = "Тип населенного пункта (обязательно)";
             // 
             // comboBoxLocaleType
             // 
@@ -237,6 +239,7 @@ namespace DBStructCourse
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label26);
             this.tabPage2.Controls.Add(this.buttonConnectPhone);
             this.tabPage2.Controls.Add(this.comboBoxPhoneRegionPhone);
             this.tabPage2.Controls.Add(this.labelPhone);
@@ -267,7 +270,7 @@ namespace DBStructCourse
             this.buttonConnectPhone.Name = "buttonConnectPhone";
             this.buttonConnectPhone.Size = new System.Drawing.Size(367, 23);
             this.buttonConnectPhone.TabIndex = 26;
-            this.buttonConnectPhone.Text = "Связать телефон-организацию";
+            this.buttonConnectPhone.Text = "Связать телефон <-> организацию";
             this.buttonConnectPhone.UseVisualStyleBackColor = true;
             this.buttonConnectPhone.Click += new System.EventHandler(this.buttonConnectPhone_Click);
             // 
@@ -333,9 +336,9 @@ namespace DBStructCourse
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(8, 124);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 13);
+            this.label16.Size = new System.Drawing.Size(176, 13);
             this.label16.TabIndex = 19;
-            this.label16.Text = "Населенный пункт";
+            this.label16.Text = "Населенный пункт (обязательно)";
             // 
             // textBoxRegionEmail
             // 
@@ -388,9 +391,9 @@ namespace DBStructCourse
             // dataGridViewRegionPhones
             // 
             this.dataGridViewRegionPhones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRegionPhones.Location = new System.Drawing.Point(8, 288);
+            this.dataGridViewRegionPhones.Location = new System.Drawing.Point(8, 301);
             this.dataGridViewRegionPhones.Name = "dataGridViewRegionPhones";
-            this.dataGridViewRegionPhones.Size = new System.Drawing.Size(367, 295);
+            this.dataGridViewRegionPhones.Size = new System.Drawing.Size(367, 282);
             this.dataGridViewRegionPhones.TabIndex = 4;
             // 
             // dataGridViewRegion
@@ -428,6 +431,148 @@ namespace DBStructCourse
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Спортивное сооружение";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(8, 201);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(112, 13);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "Адрес (обязательно)";
+            // 
+            // textBoxConstructAddress
+            // 
+            this.textBoxConstructAddress.Location = new System.Drawing.Point(8, 217);
+            this.textBoxConstructAddress.Name = "textBoxConstructAddress";
+            this.textBoxConstructAddress.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructAddress.TabIndex = 30;
+            // 
+            // buttonAddConstruct
+            // 
+            this.buttonAddConstruct.Location = new System.Drawing.Point(8, 589);
+            this.buttonAddConstruct.Name = "buttonAddConstruct";
+            this.buttonAddConstruct.Size = new System.Drawing.Size(367, 23);
+            this.buttonAddConstruct.TabIndex = 29;
+            this.buttonAddConstruct.Text = "Добавить спортивное сооружение";
+            this.buttonAddConstruct.UseVisualStyleBackColor = true;
+            this.buttonAddConstruct.Click += new System.EventHandler(this.buttonAddConstruct_Click);
+            // 
+            // comboBoxConstructRegion
+            // 
+            this.comboBoxConstructRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConstructRegion.FormattingEnabled = true;
+            this.comboBoxConstructRegion.Location = new System.Drawing.Point(8, 296);
+            this.comboBoxConstructRegion.Name = "comboBoxConstructRegion";
+            this.comboBoxConstructRegion.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxConstructRegion.TabIndex = 28;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(8, 280);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(204, 13);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "Областная организация (обязательно)";
+            // 
+            // comboBoxConstructType
+            // 
+            this.comboBoxConstructType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConstructType.FormattingEnabled = true;
+            this.comboBoxConstructType.Location = new System.Drawing.Point(8, 256);
+            this.comboBoxConstructType.Name = "comboBoxConstructType";
+            this.comboBoxConstructType.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxConstructType.TabIndex = 26;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 240);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(164, 13);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "Тип сооружения (обязательно)";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 162);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(128, 13);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Площадь (обязательно)";
+            // 
+            // textBoxConstructSquare
+            // 
+            this.textBoxConstructSquare.Location = new System.Drawing.Point(8, 178);
+            this.textBoxConstructSquare.Name = "textBoxConstructSquare";
+            this.textBoxConstructSquare.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructSquare.TabIndex = 23;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(8, 123);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(150, 13);
+            this.label21.TabIndex = 22;
+            this.label21.Text = "Вместимость (обязательно)";
+            // 
+            // textBoxConstructCapacity
+            // 
+            this.textBoxConstructCapacity.Location = new System.Drawing.Point(8, 139);
+            this.textBoxConstructCapacity.Name = "textBoxConstructCapacity";
+            this.textBoxConstructCapacity.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructCapacity.TabIndex = 21;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 84);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(211, 13);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "Дата принятия на баланс (обязательно)";
+            // 
+            // dateTimePickerConstructBalance
+            // 
+            this.dateTimePickerConstructBalance.Location = new System.Drawing.Point(8, 100);
+            this.dateTimePickerConstructBalance.Name = "dateTimePickerConstructBalance";
+            this.dateTimePickerConstructBalance.Size = new System.Drawing.Size(367, 20);
+            this.dateTimePickerConstructBalance.TabIndex = 19;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(8, 45);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(165, 13);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "Кр. Название (не обязательно)";
+            // 
+            // textBoxConstructShortName
+            // 
+            this.textBoxConstructShortName.Location = new System.Drawing.Point(8, 61);
+            this.textBoxConstructShortName.Name = "textBoxConstructShortName";
+            this.textBoxConstructShortName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructShortName.TabIndex = 17;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(8, 6);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(131, 13);
+            this.label18.TabIndex = 16;
+            this.label18.Text = "Название (обязательно)";
+            // 
+            // textBoxConstructName
+            // 
+            this.textBoxConstructName.Location = new System.Drawing.Point(8, 22);
+            this.textBoxConstructName.Name = "textBoxConstructName";
+            this.textBoxConstructName.Size = new System.Drawing.Size(367, 20);
+            this.textBoxConstructName.TabIndex = 15;
             // 
             // dataGridViewConstruct
             // 
@@ -728,6 +873,7 @@ namespace DBStructCourse
             this.dataGridViewDir.Name = "dataGridViewDir";
             this.dataGridViewDir.Size = new System.Drawing.Size(726, 606);
             this.dataGridViewDir.TabIndex = 0;
+            this.dataGridViewDir.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDir_RowHeaderMouseClick);
             // 
             // tabPage6
             // 
@@ -741,6 +887,7 @@ namespace DBStructCourse
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.buttonShowLog);
             this.tabPage11.Controls.Add(this.listBoxMainLog);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
@@ -755,7 +902,7 @@ namespace DBStructCourse
             this.listBoxMainLog.FormattingEnabled = true;
             this.listBoxMainLog.Location = new System.Drawing.Point(9, 9);
             this.listBoxMainLog.Name = "listBoxMainLog";
-            this.listBoxMainLog.Size = new System.Drawing.Size(1095, 602);
+            this.listBoxMainLog.Size = new System.Drawing.Size(1095, 576);
             this.listBoxMainLog.TabIndex = 1;
             // 
             // tabPage12
@@ -777,147 +924,24 @@ namespace DBStructCourse
             this.dataGridViewListReturner.Size = new System.Drawing.Size(1095, 606);
             this.dataGridViewListReturner.TabIndex = 0;
             // 
-            // label18
+            // label26
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 6);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(131, 13);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "Название (обязательно)";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(8, 285);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(187, 13);
+            this.label26.TabIndex = 27;
+            this.label26.Text = "Телефоны выбранной организации";
             // 
-            // textBoxConstructName
+            // buttonShowLog
             // 
-            this.textBoxConstructName.Location = new System.Drawing.Point(8, 22);
-            this.textBoxConstructName.Name = "textBoxConstructName";
-            this.textBoxConstructName.Size = new System.Drawing.Size(367, 20);
-            this.textBoxConstructName.TabIndex = 15;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 45);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(165, 13);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "Кр. Название (не обязательно)";
-            // 
-            // textBoxConstructShortName
-            // 
-            this.textBoxConstructShortName.Location = new System.Drawing.Point(8, 61);
-            this.textBoxConstructShortName.Name = "textBoxConstructShortName";
-            this.textBoxConstructShortName.Size = new System.Drawing.Size(367, 20);
-            this.textBoxConstructShortName.TabIndex = 17;
-            // 
-            // dateTimePickerConstructBalance
-            // 
-            this.dateTimePickerConstructBalance.Location = new System.Drawing.Point(8, 100);
-            this.dateTimePickerConstructBalance.Name = "dateTimePickerConstructBalance";
-            this.dateTimePickerConstructBalance.Size = new System.Drawing.Size(367, 20);
-            this.dateTimePickerConstructBalance.TabIndex = 19;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 84);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(137, 13);
-            this.label20.TabIndex = 20;
-            this.label20.Text = "Дата принятия на баланс";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(8, 123);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(150, 13);
-            this.label21.TabIndex = 22;
-            this.label21.Text = "Вместимость (обязательно)";
-            // 
-            // textBoxConstructCapacity
-            // 
-            this.textBoxConstructCapacity.Location = new System.Drawing.Point(8, 139);
-            this.textBoxConstructCapacity.Name = "textBoxConstructCapacity";
-            this.textBoxConstructCapacity.Size = new System.Drawing.Size(367, 20);
-            this.textBoxConstructCapacity.TabIndex = 21;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 162);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(128, 13);
-            this.label22.TabIndex = 24;
-            this.label22.Text = "Площадь (обязательно)";
-            // 
-            // textBoxConstructSquare
-            // 
-            this.textBoxConstructSquare.Location = new System.Drawing.Point(8, 178);
-            this.textBoxConstructSquare.Name = "textBoxConstructSquare";
-            this.textBoxConstructSquare.Size = new System.Drawing.Size(367, 20);
-            this.textBoxConstructSquare.TabIndex = 23;
-            // 
-            // comboBoxConstructType
-            // 
-            this.comboBoxConstructType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxConstructType.FormattingEnabled = true;
-            this.comboBoxConstructType.Location = new System.Drawing.Point(8, 256);
-            this.comboBoxConstructType.Name = "comboBoxConstructType";
-            this.comboBoxConstructType.Size = new System.Drawing.Size(367, 21);
-            this.comboBoxConstructType.TabIndex = 26;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(8, 240);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 13);
-            this.label23.TabIndex = 25;
-            this.label23.Text = "Тип сооружения";
-            // 
-            // comboBoxConstructRegion
-            // 
-            this.comboBoxConstructRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxConstructRegion.FormattingEnabled = true;
-            this.comboBoxConstructRegion.Location = new System.Drawing.Point(8, 296);
-            this.comboBoxConstructRegion.Name = "comboBoxConstructRegion";
-            this.comboBoxConstructRegion.Size = new System.Drawing.Size(367, 21);
-            this.comboBoxConstructRegion.TabIndex = 28;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(8, 280);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(130, 13);
-            this.label24.TabIndex = 27;
-            this.label24.Text = "Областная организация";
-            // 
-            // buttonAddConstruct
-            // 
-            this.buttonAddConstruct.Location = new System.Drawing.Point(8, 589);
-            this.buttonAddConstruct.Name = "buttonAddConstruct";
-            this.buttonAddConstruct.Size = new System.Drawing.Size(367, 23);
-            this.buttonAddConstruct.TabIndex = 29;
-            this.buttonAddConstruct.Text = "Добавить спортивное сооружение";
-            this.buttonAddConstruct.UseVisualStyleBackColor = true;
-            this.buttonAddConstruct.Click += new System.EventHandler(this.buttonAddConstruct_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(8, 201);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(112, 13);
-            this.label25.TabIndex = 31;
-            this.label25.Text = "Адрес (обязательно)";
-            // 
-            // textBoxConstructAddress
-            // 
-            this.textBoxConstructAddress.Location = new System.Drawing.Point(8, 217);
-            this.textBoxConstructAddress.Name = "textBoxConstructAddress";
-            this.textBoxConstructAddress.Size = new System.Drawing.Size(367, 20);
-            this.textBoxConstructAddress.TabIndex = 30;
+            this.buttonShowLog.Location = new System.Drawing.Point(9, 591);
+            this.buttonShowLog.Name = "buttonShowLog";
+            this.buttonShowLog.Size = new System.Drawing.Size(1095, 23);
+            this.buttonShowLog.TabIndex = 27;
+            this.buttonShowLog.Text = "Показать файл";
+            this.buttonShowLog.UseVisualStyleBackColor = true;
+            this.buttonShowLog.Click += new System.EventHandler(this.buttonShowLog_Click);
             // 
             // MainFrame
             // 
@@ -1043,6 +1067,8 @@ namespace DBStructCourse
         private System.Windows.Forms.Button buttonAddConstruct;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBoxConstructAddress;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button buttonShowLog;
     }
 }
 
