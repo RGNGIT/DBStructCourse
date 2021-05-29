@@ -16,9 +16,9 @@ namespace DBStructCourse
         }
 
         string Credentials = 
-            "Server = localhost;" +
-            "Integrated security = SSPI;" +
-            "database = course";
+            $"Server = {Program.Server};" +
+            $"Integrated security = {Program.Security};" +
+            $"database = {Program.Database};";
 
         private void buttonShowLog_Click(object sender, EventArgs e)
         {
@@ -291,6 +291,7 @@ namespace DBStructCourse
                 textBoxRegionShortName.Text, 
                 textBoxRegionEmail.Text, 
                 GetDirCode("Db_Locale", comboBoxRegionLocale.SelectedItem.ToString(), 1)));
+            ComboUpdates();
             MainTabUpdate(1);
             database.Dispose();
         }
@@ -399,7 +400,7 @@ namespace DBStructCourse
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewListReturner.DataSource = database.ReturnTable("*", "Db_Event", null).Tables[0].DefaultView;
             database.Dispose();
-            return Convert.ToInt32(dataGridViewListReturner.Rows[dataGridViewListReturner.Rows.Count - 1].Cells[0].Value) + 1;
+            return Convert.ToInt32(dataGridViewListReturner.Rows[dataGridViewListReturner.Rows.Count - 2].Cells[0].Value) + 1;
         }
 
         private void buttonEventAdd_Click(object sender, EventArgs e)

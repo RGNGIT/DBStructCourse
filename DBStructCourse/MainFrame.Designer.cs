@@ -40,6 +40,7 @@ namespace DBStructCourse
             this.textBoxLocaleName = new System.Windows.Forms.TextBox();
             this.dataGridViewLocale = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
             this.buttonConnectPhone = new System.Windows.Forms.Button();
             this.comboBoxPhoneRegionPhone = new System.Windows.Forms.ComboBox();
             this.labelPhone = new System.Windows.Forms.Label();
@@ -76,6 +77,13 @@ namespace DBStructCourse
             this.textBoxConstructName = new System.Windows.Forms.TextBox();
             this.dataGridViewConstruct = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.buttonEventAdd = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.comboBoxEventConstruct = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBoxEventPplAmount = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.dateTimePickerEventDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxLocaleEvent = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -106,23 +114,15 @@ namespace DBStructCourse
             this.textBoxDirEventType = new System.Windows.Forms.TextBox();
             this.dataGridViewDir = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.listBoxMainLog = new System.Windows.Forms.ListBox();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.label26 = new System.Windows.Forms.Label();
-            this.buttonShowLog = new System.Windows.Forms.Button();
             this.tabControlTasks = new System.Windows.Forms.TabControl();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.label27 = new System.Windows.Forms.Label();
-            this.dateTimePickerEventDate = new System.Windows.Forms.DateTimePicker();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBoxEventPplAmount = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.comboBoxEventConstruct = new System.Windows.Forms.ComboBox();
-            this.buttonEventAdd = new System.Windows.Forms.Button();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.buttonShowLog = new System.Windows.Forms.Button();
+            this.listBoxMainLog = new System.Windows.Forms.ListBox();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -141,10 +141,10 @@ namespace DBStructCourse
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDir)).BeginInit();
             this.tabPage6.SuspendLayout();
+            this.tabControlTasks.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
-            this.tabControlTasks.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -276,6 +276,15 @@ namespace DBStructCourse
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Областная организация";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(8, 285);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(187, 13);
+            this.label26.TabIndex = 27;
+            this.label26.Text = "Телефоны выбранной организации";
             // 
             // buttonConnectPhone
             // 
@@ -621,6 +630,66 @@ namespace DBStructCourse
             this.tabPage4.Text = "Мероприятие";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // buttonEventAdd
+            // 
+            this.buttonEventAdd.Location = new System.Drawing.Point(8, 589);
+            this.buttonEventAdd.Name = "buttonEventAdd";
+            this.buttonEventAdd.Size = new System.Drawing.Size(367, 23);
+            this.buttonEventAdd.TabIndex = 27;
+            this.buttonEventAdd.Text = "Добавить мероприятие";
+            this.buttonEventAdd.UseVisualStyleBackColor = true;
+            this.buttonEventAdd.Click += new System.EventHandler(this.buttonEventAdd_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(8, 165);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(205, 13);
+            this.label29.TabIndex = 26;
+            this.label29.Text = "Спортивное сооружение (обязательно)";
+            // 
+            // comboBoxEventConstruct
+            // 
+            this.comboBoxEventConstruct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEventConstruct.FormattingEnabled = true;
+            this.comboBoxEventConstruct.Location = new System.Drawing.Point(8, 181);
+            this.comboBoxEventConstruct.Name = "comboBoxEventConstruct";
+            this.comboBoxEventConstruct.Size = new System.Drawing.Size(367, 21);
+            this.comboBoxEventConstruct.TabIndex = 25;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(8, 126);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(184, 13);
+            this.label28.TabIndex = 24;
+            this.label28.Text = "Количество человек (обязательно)";
+            // 
+            // textBoxEventPplAmount
+            // 
+            this.textBoxEventPplAmount.Location = new System.Drawing.Point(8, 142);
+            this.textBoxEventPplAmount.Name = "textBoxEventPplAmount";
+            this.textBoxEventPplAmount.Size = new System.Drawing.Size(367, 20);
+            this.textBoxEventPplAmount.TabIndex = 23;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(8, 86);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(170, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Дата проведения (обязательно)";
+            // 
+            // dateTimePickerEventDate
+            // 
+            this.dateTimePickerEventDate.Location = new System.Drawing.Point(8, 102);
+            this.dateTimePickerEventDate.Name = "dateTimePickerEventDate";
+            this.dateTimePickerEventDate.Size = new System.Drawing.Size(367, 20);
+            this.dateTimePickerEventDate.TabIndex = 21;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -906,64 +975,6 @@ namespace DBStructCourse
             this.tabPage6.Text = "Отчет";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage11
-            // 
-            this.tabPage11.Controls.Add(this.buttonShowLog);
-            this.tabPage11.Controls.Add(this.listBoxMainLog);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1113, 621);
-            this.tabPage11.TabIndex = 6;
-            this.tabPage11.Text = "Лог";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // listBoxMainLog
-            // 
-            this.listBoxMainLog.FormattingEnabled = true;
-            this.listBoxMainLog.Location = new System.Drawing.Point(9, 9);
-            this.listBoxMainLog.Name = "listBoxMainLog";
-            this.listBoxMainLog.Size = new System.Drawing.Size(1095, 576);
-            this.listBoxMainLog.TabIndex = 1;
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Controls.Add(this.dataGridViewListReturner);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1113, 621);
-            this.tabPage12.TabIndex = 7;
-            this.tabPage12.Text = "Service";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewListReturner
-            // 
-            this.dataGridViewListReturner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListReturner.Location = new System.Drawing.Point(8, 6);
-            this.dataGridViewListReturner.Name = "dataGridViewListReturner";
-            this.dataGridViewListReturner.Size = new System.Drawing.Size(1095, 606);
-            this.dataGridViewListReturner.TabIndex = 0;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(8, 285);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(187, 13);
-            this.label26.TabIndex = 27;
-            this.label26.Text = "Телефоны выбранной организации";
-            // 
-            // buttonShowLog
-            // 
-            this.buttonShowLog.Location = new System.Drawing.Point(9, 591);
-            this.buttonShowLog.Name = "buttonShowLog";
-            this.buttonShowLog.Size = new System.Drawing.Size(1095, 23);
-            this.buttonShowLog.TabIndex = 27;
-            this.buttonShowLog.Text = "Показать файл";
-            this.buttonShowLog.UseVisualStyleBackColor = true;
-            this.buttonShowLog.Click += new System.EventHandler(this.buttonShowLog_Click);
-            // 
             // tabControlTasks
             // 
             this.tabControlTasks.Controls.Add(this.tabPage13);
@@ -1007,65 +1018,54 @@ namespace DBStructCourse
     "оружения, их количество";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
-            // label27
+            // tabPage11
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(8, 86);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(170, 13);
-            this.label27.TabIndex = 22;
-            this.label27.Text = "Дата проведения (обязательно)";
+            this.tabPage11.Controls.Add(this.buttonShowLog);
+            this.tabPage11.Controls.Add(this.listBoxMainLog);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(1113, 621);
+            this.tabPage11.TabIndex = 6;
+            this.tabPage11.Text = "Лог";
+            this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // dateTimePickerEventDate
+            // buttonShowLog
             // 
-            this.dateTimePickerEventDate.Location = new System.Drawing.Point(8, 102);
-            this.dateTimePickerEventDate.Name = "dateTimePickerEventDate";
-            this.dateTimePickerEventDate.Size = new System.Drawing.Size(367, 20);
-            this.dateTimePickerEventDate.TabIndex = 21;
+            this.buttonShowLog.Location = new System.Drawing.Point(9, 591);
+            this.buttonShowLog.Name = "buttonShowLog";
+            this.buttonShowLog.Size = new System.Drawing.Size(1095, 23);
+            this.buttonShowLog.TabIndex = 27;
+            this.buttonShowLog.Text = "Показать файл";
+            this.buttonShowLog.UseVisualStyleBackColor = true;
+            this.buttonShowLog.Click += new System.EventHandler(this.buttonShowLog_Click);
             // 
-            // label28
+            // listBoxMainLog
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(8, 126);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(184, 13);
-            this.label28.TabIndex = 24;
-            this.label28.Text = "Количество человек (обязательно)";
+            this.listBoxMainLog.FormattingEnabled = true;
+            this.listBoxMainLog.Location = new System.Drawing.Point(9, 9);
+            this.listBoxMainLog.Name = "listBoxMainLog";
+            this.listBoxMainLog.Size = new System.Drawing.Size(1095, 576);
+            this.listBoxMainLog.TabIndex = 1;
             // 
-            // textBoxEventPplAmount
+            // tabPage12
             // 
-            this.textBoxEventPplAmount.Location = new System.Drawing.Point(8, 142);
-            this.textBoxEventPplAmount.Name = "textBoxEventPplAmount";
-            this.textBoxEventPplAmount.Size = new System.Drawing.Size(367, 20);
-            this.textBoxEventPplAmount.TabIndex = 23;
+            this.tabPage12.Controls.Add(this.dataGridViewListReturner);
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(1113, 621);
+            this.tabPage12.TabIndex = 7;
+            this.tabPage12.Text = "Service";
+            this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // label29
+            // dataGridViewListReturner
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(8, 165);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(205, 13);
-            this.label29.TabIndex = 26;
-            this.label29.Text = "Спортивное сооружение (обязательно)";
-            // 
-            // comboBoxEventConstruct
-            // 
-            this.comboBoxEventConstruct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEventConstruct.FormattingEnabled = true;
-            this.comboBoxEventConstruct.Location = new System.Drawing.Point(8, 181);
-            this.comboBoxEventConstruct.Name = "comboBoxEventConstruct";
-            this.comboBoxEventConstruct.Size = new System.Drawing.Size(367, 21);
-            this.comboBoxEventConstruct.TabIndex = 25;
-            // 
-            // buttonEventAdd
-            // 
-            this.buttonEventAdd.Location = new System.Drawing.Point(8, 589);
-            this.buttonEventAdd.Name = "buttonEventAdd";
-            this.buttonEventAdd.Size = new System.Drawing.Size(367, 23);
-            this.buttonEventAdd.TabIndex = 27;
-            this.buttonEventAdd.Text = "Добавить мероприятие";
-            this.buttonEventAdd.UseVisualStyleBackColor = true;
-            this.buttonEventAdd.Click += new System.EventHandler(this.buttonEventAdd_Click);
+            this.dataGridViewListReturner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListReturner.Location = new System.Drawing.Point(8, 6);
+            this.dataGridViewListReturner.Name = "dataGridViewListReturner";
+            this.dataGridViewListReturner.Size = new System.Drawing.Size(236, 143);
+            this.dataGridViewListReturner.TabIndex = 0;
             // 
             // MainFrame
             // 
@@ -1102,10 +1102,10 @@ namespace DBStructCourse
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDir)).EndInit();
             this.tabPage6.ResumeLayout(false);
+            this.tabControlTasks.ResumeLayout(false);
             this.tabPage11.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
-            this.tabControlTasks.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

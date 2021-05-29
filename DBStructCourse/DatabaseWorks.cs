@@ -207,7 +207,7 @@ namespace DBStructCourse
                 int Amount = command.ExecuteNonQuery();
                 command = new SqlCommand(
                     $"INSERT INTO Db_EventDate (Код_Мероприятия, Код_Сооруж, ДатаПроведения, КолВо_Человек)" +
-                    $"VALUES ({EventCode}, {ConstructCode}, '{Date}', {PeopleAmount})");
+                    $"VALUES ({EventCode}, {ConstructCode}, '{Date}', {PeopleAmount})", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery() + Amount}";
             }
             catch (Exception e)

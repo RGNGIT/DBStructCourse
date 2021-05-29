@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DBStructCourse
@@ -16,7 +13,12 @@ namespace DBStructCourse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrame());
+            Application.Run(new Auth());
         }
+
+        public static string Server;
+        public static string Security;
+        public static string Database;
+
     }
 }
