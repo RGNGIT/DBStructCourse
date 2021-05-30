@@ -211,6 +211,7 @@ namespace DBStructCourse
             this.buttonDeleteLocale.TabIndex = 17;
             this.buttonDeleteLocale.Text = "Удалить населенный пункт";
             this.buttonDeleteLocale.UseVisualStyleBackColor = true;
+            this.buttonDeleteLocale.Click += new System.EventHandler(this.buttonDeleteLocale_Click);
             // 
             // buttonRedactLocale
             // 
@@ -220,6 +221,7 @@ namespace DBStructCourse
             this.buttonRedactLocale.TabIndex = 16;
             this.buttonRedactLocale.Text = "Редактировать населенный пункт";
             this.buttonRedactLocale.UseVisualStyleBackColor = true;
+            this.buttonRedactLocale.Click += new System.EventHandler(this.buttonRedactLocale_Click);
             // 
             // buttonAddLocale
             // 
@@ -288,6 +290,7 @@ namespace DBStructCourse
             this.dataGridViewLocale.Name = "dataGridViewLocale";
             this.dataGridViewLocale.Size = new System.Drawing.Size(726, 606);
             this.dataGridViewLocale.TabIndex = 2;
+            this.dataGridViewLocale.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewLocale_RowHeaderMouseClick);
             // 
             // tabPage2
             // 
@@ -328,6 +331,7 @@ namespace DBStructCourse
             this.buttonRegDelete.TabIndex = 29;
             this.buttonRegDelete.Text = "Удалить";
             this.buttonRegDelete.UseVisualStyleBackColor = true;
+            this.buttonRegDelete.Click += new System.EventHandler(this.buttonRegDelete_Click);
             // 
             // buttonRedactRegion
             // 
@@ -337,6 +341,7 @@ namespace DBStructCourse
             this.buttonRedactRegion.TabIndex = 28;
             this.buttonRedactRegion.Text = "Редактировать";
             this.buttonRedactRegion.UseVisualStyleBackColor = true;
+            this.buttonRedactRegion.Click += new System.EventHandler(this.buttonRedactRegion_Click);
             // 
             // label26
             // 
@@ -526,6 +531,7 @@ namespace DBStructCourse
             this.buttonConstructDelete.TabIndex = 33;
             this.buttonConstructDelete.Text = "Удалить спортивное сооружение";
             this.buttonConstructDelete.UseVisualStyleBackColor = true;
+            this.buttonConstructDelete.Click += new System.EventHandler(this.buttonConstructDelete_Click);
             // 
             // buttonConstructionRedact
             // 
@@ -535,6 +541,7 @@ namespace DBStructCourse
             this.buttonConstructionRedact.TabIndex = 32;
             this.buttonConstructionRedact.Text = "Редактировать спортивное сооружение";
             this.buttonConstructionRedact.UseVisualStyleBackColor = true;
+            this.buttonConstructionRedact.Click += new System.EventHandler(this.buttonConstructionRedact_Click);
             // 
             // label25
             // 
@@ -1228,6 +1235,7 @@ namespace DBStructCourse
             this.buttonEventRedact.TabIndex = 28;
             this.buttonEventRedact.Text = "Редактировать мероприятие";
             this.buttonEventRedact.UseVisualStyleBackColor = true;
+            this.buttonEventRedact.Click += new System.EventHandler(this.buttonEventRedact_Click);
             // 
             // buttonEventDelete
             // 
@@ -1238,6 +1246,7 @@ namespace DBStructCourse
             this.buttonEventDelete.TabIndex = 29;
             this.buttonEventDelete.Text = "Удалить мероприятие";
             this.buttonEventDelete.UseVisualStyleBackColor = true;
+            this.buttonEventDelete.Click += new System.EventHandler(this.buttonEventDelete_Click);
             // 
             // dataGridViewConsSelect
             // 

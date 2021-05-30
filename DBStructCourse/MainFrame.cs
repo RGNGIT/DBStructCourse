@@ -13,6 +13,7 @@ namespace DBStructCourse
             InitializeComponent();
             DirTabUpdate();
             MainTabUpdate(tabControlMain.SelectedIndex);
+            ComboUpdates();
         }
 
         string Credentials = 
@@ -460,6 +461,84 @@ namespace DBStructCourse
                 $"AND Db_Construct.Код = Col_RegionsAndConstructs.КодСооруж " +
                 $"AND Db_Region.Код = Col_RegionsAndConstructs.КодРегиона").Tables[0].DefaultView;
             database.Dispose();
+        }
+
+        // Редактировать, удалить населенные пункты
+
+        private void buttonRedactLocale_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            listBoxMainLog.Items.Add(database.UpdateLocale(
+                textBoxLocaleName.Text,
+                textBoxLocaleShortName.Text,
+                GetDirCode("Db_LocaleType", comboBoxLocaleType.SelectedItem.ToString(), 1),
+                Convert.ToInt32(dataGridViewLocale.SelectedRows[0].Cells[0].Value)));
+            MainTabUpdate(0);
+            database.Dispose();
+        }
+
+        private void buttonDeleteLocale_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        // Редактировать, удалить областную организацию
+
+        private void buttonRedactRegion_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        private void buttonRegDelete_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        // Редактировать, удалить сооружение
+
+        private void buttonConstructionRedact_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        private void buttonConstructDelete_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        // Редактировать, удалить событие
+
+        private void buttonEventRedact_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        private void buttonEventDelete_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+
+            database.Dispose();
+        }
+
+        // Клики на гриды
+
+        private void dataGridViewLocale_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBoxLocaleName.Text = dataGridViewLocale.SelectedRows[0].Cells[1].Value.ToString();
+            textBoxLocaleShortName.Text = dataGridViewLocale.SelectedRows[0].Cells[2].Value.ToString();
+            comboBoxLocaleType.Text = dataGridViewLocale.SelectedRows[0].Cells[3].Value.ToString();
         }
     }
 }

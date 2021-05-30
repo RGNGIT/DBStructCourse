@@ -256,5 +256,27 @@ namespace DBStructCourse
             }
         }
 
+        // Редактирование, удаление
+
+        public string UpdateLocale(string Name, string ShName, int TypeCode, int Key)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "UPDATE Db_Locale SET " +
+                    $"Db_Locale.Название_НасПункта = '{Name}', " +
+                    $"Db_Locale.Кр_Название_НасПункта = '{ShName}', " +
+                    $"Db_Locale.КодТипа = {TypeCode} " +
+                    $"WHERE Db_Locale.Код = {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+
+
     }
 }
