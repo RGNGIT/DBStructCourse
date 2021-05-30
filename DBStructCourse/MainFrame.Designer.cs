@@ -31,6 +31,8 @@ namespace DBStructCourse
         {
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonDeleteLocale = new System.Windows.Forms.Button();
+            this.buttonRedactLocale = new System.Windows.Forms.Button();
             this.buttonAddLocale = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxLocaleType = new System.Windows.Forms.ComboBox();
@@ -40,6 +42,8 @@ namespace DBStructCourse
             this.textBoxLocaleName = new System.Windows.Forms.TextBox();
             this.dataGridViewLocale = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonRegDelete = new System.Windows.Forms.Button();
+            this.buttonRedactRegion = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.buttonConnectPhone = new System.Windows.Forms.Button();
             this.comboBoxPhoneRegionPhone = new System.Windows.Forms.ComboBox();
@@ -58,6 +62,8 @@ namespace DBStructCourse
             this.dataGridViewRegionPhones = new System.Windows.Forms.DataGridView();
             this.dataGridViewRegion = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonConstructDelete = new System.Windows.Forms.Button();
+            this.buttonConstructionRedact = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.textBoxConstructAddress = new System.Windows.Forms.TextBox();
             this.buttonAddConstruct = new System.Windows.Forms.Button();
@@ -130,9 +136,10 @@ namespace DBStructCourse
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.buttonShowLog = new System.Windows.Forms.Button();
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
+            this.buttonEventRedact = new System.Windows.Forms.Button();
+            this.buttonEventDelete = new System.Windows.Forms.Button();
             this.dataGridViewConsSelect = new System.Windows.Forms.DataGridView();
+            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -155,9 +162,8 @@ namespace DBStructCourse
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport1)).BeginInit();
             this.tabPage11.SuspendLayout();
-            this.tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -169,7 +175,6 @@ namespace DBStructCourse
             this.tabControlMain.Controls.Add(this.tabPage5);
             this.tabControlMain.Controls.Add(this.tabPage6);
             this.tabControlMain.Controls.Add(this.tabPage11);
-            this.tabControlMain.Controls.Add(this.tabPage12);
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -180,6 +185,8 @@ namespace DBStructCourse
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.buttonDeleteLocale);
+            this.tabPage1.Controls.Add(this.buttonRedactLocale);
             this.tabPage1.Controls.Add(this.buttonAddLocale);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.comboBoxLocaleType);
@@ -194,6 +201,25 @@ namespace DBStructCourse
             this.tabPage1.Size = new System.Drawing.Size(1113, 621);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Населенный пункт";
+            // 
+            // buttonDeleteLocale
+            // 
+            this.buttonDeleteLocale.ForeColor = System.Drawing.Color.Red;
+            this.buttonDeleteLocale.Location = new System.Drawing.Point(8, 531);
+            this.buttonDeleteLocale.Name = "buttonDeleteLocale";
+            this.buttonDeleteLocale.Size = new System.Drawing.Size(367, 23);
+            this.buttonDeleteLocale.TabIndex = 17;
+            this.buttonDeleteLocale.Text = "Удалить населенный пункт";
+            this.buttonDeleteLocale.UseVisualStyleBackColor = true;
+            // 
+            // buttonRedactLocale
+            // 
+            this.buttonRedactLocale.Location = new System.Drawing.Point(8, 560);
+            this.buttonRedactLocale.Name = "buttonRedactLocale";
+            this.buttonRedactLocale.Size = new System.Drawing.Size(367, 23);
+            this.buttonRedactLocale.TabIndex = 16;
+            this.buttonRedactLocale.Text = "Редактировать населенный пункт";
+            this.buttonRedactLocale.UseVisualStyleBackColor = true;
             // 
             // buttonAddLocale
             // 
@@ -265,6 +291,8 @@ namespace DBStructCourse
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonRegDelete);
+            this.tabPage2.Controls.Add(this.buttonRedactRegion);
             this.tabPage2.Controls.Add(this.label26);
             this.tabPage2.Controls.Add(this.buttonConnectPhone);
             this.tabPage2.Controls.Add(this.comboBoxPhoneRegionPhone);
@@ -289,6 +317,26 @@ namespace DBStructCourse
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Областная организация";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonRegDelete
+            // 
+            this.buttonRegDelete.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonRegDelete.ForeColor = System.Drawing.Color.Red;
+            this.buttonRegDelete.Location = new System.Drawing.Point(259, 167);
+            this.buttonRegDelete.Name = "buttonRegDelete";
+            this.buttonRegDelete.Size = new System.Drawing.Size(116, 23);
+            this.buttonRegDelete.TabIndex = 29;
+            this.buttonRegDelete.Text = "Удалить";
+            this.buttonRegDelete.UseVisualStyleBackColor = true;
+            // 
+            // buttonRedactRegion
+            // 
+            this.buttonRedactRegion.Location = new System.Drawing.Point(130, 167);
+            this.buttonRedactRegion.Name = "buttonRedactRegion";
+            this.buttonRedactRegion.Size = new System.Drawing.Size(123, 23);
+            this.buttonRedactRegion.TabIndex = 28;
+            this.buttonRedactRegion.Text = "Редактировать";
+            this.buttonRedactRegion.UseVisualStyleBackColor = true;
             // 
             // label26
             // 
@@ -351,9 +399,9 @@ namespace DBStructCourse
             // 
             this.buttonAddRegion.Location = new System.Drawing.Point(8, 167);
             this.buttonAddRegion.Name = "buttonAddRegion";
-            this.buttonAddRegion.Size = new System.Drawing.Size(367, 23);
+            this.buttonAddRegion.Size = new System.Drawing.Size(116, 23);
             this.buttonAddRegion.TabIndex = 21;
-            this.buttonAddRegion.Text = "Добавить областную организацию";
+            this.buttonAddRegion.Text = "Добавить";
             this.buttonAddRegion.UseVisualStyleBackColor = true;
             this.buttonAddRegion.Click += new System.EventHandler(this.buttonAddRegion_Click);
             // 
@@ -441,6 +489,8 @@ namespace DBStructCourse
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonConstructDelete);
+            this.tabPage3.Controls.Add(this.buttonConstructionRedact);
             this.tabPage3.Controls.Add(this.label25);
             this.tabPage3.Controls.Add(this.textBoxConstructAddress);
             this.tabPage3.Controls.Add(this.buttonAddConstruct);
@@ -466,6 +516,25 @@ namespace DBStructCourse
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Спортивное сооружение";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonConstructDelete
+            // 
+            this.buttonConstructDelete.ForeColor = System.Drawing.Color.Red;
+            this.buttonConstructDelete.Location = new System.Drawing.Point(8, 531);
+            this.buttonConstructDelete.Name = "buttonConstructDelete";
+            this.buttonConstructDelete.Size = new System.Drawing.Size(367, 23);
+            this.buttonConstructDelete.TabIndex = 33;
+            this.buttonConstructDelete.Text = "Удалить спортивное сооружение";
+            this.buttonConstructDelete.UseVisualStyleBackColor = true;
+            // 
+            // buttonConstructionRedact
+            // 
+            this.buttonConstructionRedact.Location = new System.Drawing.Point(8, 560);
+            this.buttonConstructionRedact.Name = "buttonConstructionRedact";
+            this.buttonConstructionRedact.Size = new System.Drawing.Size(367, 23);
+            this.buttonConstructionRedact.TabIndex = 32;
+            this.buttonConstructionRedact.Text = "Редактировать спортивное сооружение";
+            this.buttonConstructionRedact.UseVisualStyleBackColor = true;
             // 
             // label25
             // 
@@ -619,6 +688,8 @@ namespace DBStructCourse
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.buttonEventDelete);
+            this.tabPage4.Controls.Add(this.buttonEventRedact);
             this.tabPage4.Controls.Add(this.buttonEventAdd);
             this.tabPage4.Controls.Add(this.label29);
             this.tabPage4.Controls.Add(this.comboBoxEventConstruct);
@@ -1121,6 +1192,8 @@ namespace DBStructCourse
             // 
             this.tabPage11.Controls.Add(this.buttonShowLog);
             this.tabPage11.Controls.Add(this.listBoxMainLog);
+            this.tabPage11.Controls.Add(this.dataGridViewConsSelect);
+            this.tabPage11.Controls.Add(this.dataGridViewListReturner);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -1144,36 +1217,43 @@ namespace DBStructCourse
             this.listBoxMainLog.FormattingEnabled = true;
             this.listBoxMainLog.Location = new System.Drawing.Point(9, 9);
             this.listBoxMainLog.Name = "listBoxMainLog";
-            this.listBoxMainLog.Size = new System.Drawing.Size(1095, 576);
+            this.listBoxMainLog.Size = new System.Drawing.Size(1094, 576);
             this.listBoxMainLog.TabIndex = 1;
             // 
-            // tabPage12
+            // buttonEventRedact
             // 
-            this.tabPage12.Controls.Add(this.dataGridViewConsSelect);
-            this.tabPage12.Controls.Add(this.dataGridViewListReturner);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1113, 621);
-            this.tabPage12.TabIndex = 7;
-            this.tabPage12.Text = "Service";
-            this.tabPage12.UseVisualStyleBackColor = true;
+            this.buttonEventRedact.Location = new System.Drawing.Point(8, 560);
+            this.buttonEventRedact.Name = "buttonEventRedact";
+            this.buttonEventRedact.Size = new System.Drawing.Size(367, 23);
+            this.buttonEventRedact.TabIndex = 28;
+            this.buttonEventRedact.Text = "Редактировать мероприятие";
+            this.buttonEventRedact.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewListReturner
+            // buttonEventDelete
             // 
-            this.dataGridViewListReturner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListReturner.Location = new System.Drawing.Point(8, 6);
-            this.dataGridViewListReturner.Name = "dataGridViewListReturner";
-            this.dataGridViewListReturner.Size = new System.Drawing.Size(236, 143);
-            this.dataGridViewListReturner.TabIndex = 0;
+            this.buttonEventDelete.ForeColor = System.Drawing.Color.Red;
+            this.buttonEventDelete.Location = new System.Drawing.Point(8, 531);
+            this.buttonEventDelete.Name = "buttonEventDelete";
+            this.buttonEventDelete.Size = new System.Drawing.Size(367, 23);
+            this.buttonEventDelete.TabIndex = 29;
+            this.buttonEventDelete.Text = "Удалить мероприятие";
+            this.buttonEventDelete.UseVisualStyleBackColor = true;
             // 
             // dataGridViewConsSelect
             // 
             this.dataGridViewConsSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewConsSelect.Location = new System.Drawing.Point(8, 155);
+            this.dataGridViewConsSelect.Location = new System.Drawing.Point(867, 158);
             this.dataGridViewConsSelect.Name = "dataGridViewConsSelect";
             this.dataGridViewConsSelect.Size = new System.Drawing.Size(236, 143);
-            this.dataGridViewConsSelect.TabIndex = 1;
+            this.dataGridViewConsSelect.TabIndex = 29;
+            // 
+            // dataGridViewListReturner
+            // 
+            this.dataGridViewListReturner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListReturner.Location = new System.Drawing.Point(867, 9);
+            this.dataGridViewListReturner.Name = "dataGridViewListReturner";
+            this.dataGridViewListReturner.Size = new System.Drawing.Size(236, 143);
+            this.dataGridViewListReturner.TabIndex = 28;
             // 
             // MainFrame
             // 
@@ -1215,9 +1295,8 @@ namespace DBStructCourse
             this.tabPage13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport1)).EndInit();
             this.tabPage11.ResumeLayout(false);
-            this.tabPage12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1266,8 +1345,6 @@ namespace DBStructCourse
         private System.Windows.Forms.ComboBox comboBoxLocaleType;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.ListBox listBoxMainLog;
-        private System.Windows.Forms.TabPage tabPage12;
-        private System.Windows.Forms.DataGridView dataGridViewListReturner;
         private System.Windows.Forms.Button buttonAddLocale;
         private System.Windows.Forms.DataGridView dataGridViewRegion;
         private System.Windows.Forms.ComboBox comboBoxRegionLocale;
@@ -1327,7 +1404,16 @@ namespace DBStructCourse
         private System.Windows.Forms.DateTimePicker dateTimePickerReport1To;
         private System.Windows.Forms.Button buttonReport1;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button buttonDeleteLocale;
+        private System.Windows.Forms.Button buttonRedactLocale;
+        private System.Windows.Forms.Button buttonRegDelete;
+        private System.Windows.Forms.Button buttonRedactRegion;
+        private System.Windows.Forms.Button buttonConstructDelete;
+        private System.Windows.Forms.Button buttonConstructionRedact;
+        private System.Windows.Forms.Button buttonEventDelete;
+        private System.Windows.Forms.Button buttonEventRedact;
         private System.Windows.Forms.DataGridView dataGridViewConsSelect;
+        private System.Windows.Forms.DataGridView dataGridViewListReturner;
     }
 }
 

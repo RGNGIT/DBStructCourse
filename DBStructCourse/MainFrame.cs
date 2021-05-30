@@ -452,11 +452,13 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewReport1.DataSource = database.ReturnTable(
-                "*",
-                "Db_Construct",
+                "Db_Construct.Код as Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_Region.Название_ОблОрг as Организация",
+                "Db_Construct, Db_Region, Col_RegionsAndConstructs",
                 $"WHERE ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport1From.Value.ToString("yyyy/MM/dd"))}' " +
                 $"AND ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport1To.Value.ToString("yyyy/MM/dd"))}' " +
-                $"AND КодТипа = {GetDirCode("Db_ConstructType", comboBoxReportType.SelectedItem.ToString(), 1)}").Tables[0].DefaultView;
+                $"AND КодТипа = {GetDirCode("Db_ConstructType", comboBoxReportType.SelectedItem.ToString(), 1)} " +
+                $"AND Db_Construct.Код = Col_RegionsAndConstructs.КодСооруж " +
+                $"AND Db_Region.Код = Col_RegionsAndConstructs.КодРегиона").Tables[0].DefaultView;
             database.Dispose();
         }
     }
