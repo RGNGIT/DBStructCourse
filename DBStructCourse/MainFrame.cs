@@ -91,10 +91,10 @@ namespace DBStructCourse
                 case 2: // Обновить таблицу сооружений
                     dataGridViewConstruct.DataSource = database.ReturnTable(
                         "Db_Construct.Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_ConstructType.Тип_Сооруж as Тип, Db_Region.Название_ОблОрг as ОбластнаяОрганизация, Db_Address.АдресЗнач as Адрес",
-                        "Db_Construct, Db_ConstructType, Db_Region, Db_Address",
-                        "WHERE Db_Construct.КодТипа = Db_ConstructType.Код AND Db_Construct.КодОблорг = Db_Region.Код AND Db_Construct.Код = Db_Address.Код").Tables[0].DefaultView;
+                        "Db_Construct, Db_ConstructType, Db_Region, Db_Address, Col_RegionsAndConstructs",
+                        "WHERE Db_Construct.КодТипа = Db_ConstructType.Код AND Col_RegionsAndConstructs.КодРегиона = Db_Region.Код AND Col_RegionsAndConstructs.КодСооруж = Db_Construct.Код AND Db_Construct.Код = Db_Address.Код").Tables[0].DefaultView;
                     break;
-                case 3:
+                case 3: // Обновить таблицу мероприятий
                     dataGridViewEvent.DataSource = database.ReturnTable(
                         "Db_Event.Код, Название_Мероприятия as Название, Кр_Название_Мероприятия as КраткоеНазвание, Db_EventType.Тип_Мероприятия as Тип, Db_Locale.Название_НасПункта as НаселенныйПункт, Db_EventDate.ДатаПроведения as ДатаПроведения, Db_EventDate.КолВо_Человек as КоличествоЧеловек, Db_Construct.Название_Сооруж as Сооружение",
                         "Db_Event, Db_EventType, Db_EventDate, Db_Locale, Db_Construct",
@@ -184,6 +184,7 @@ namespace DBStructCourse
             comboBoxEventConstruct.Items.Clear();
             comboBoxEventType.Items.Clear();
             comboBoxLocaleEvent.Items.Clear();
+            comboBoxReportType.Items.Clear();
             foreach(string i in BufferListUpdate(0))
             {
                 comboBoxLocaleType.Items.Add(i);
@@ -191,10 +192,12 @@ namespace DBStructCourse
             foreach (string i in BufferListUpdate(5))
             {
                 comboBoxRegionLocale.Items.Add(i);
+                comboBoxLocaleEvent.Items.Add(i);
             }
             foreach(string i in BufferListUpdate(6))
             {
                 comboBoxPhoneRegion.Items.Add(i);
+                comboBoxConstructRegion.Items.Add(i);
             }
             foreach(string i in BufferListUpdate(2))
             {
@@ -203,10 +206,7 @@ namespace DBStructCourse
             foreach(string i in BufferListUpdate(3))
             {
                 comboBoxConstructType.Items.Add(i);
-            }
-            foreach (string i in BufferListUpdate(6))
-            {
-                comboBoxConstructRegion.Items.Add(i);
+                comboBoxReportType.Items.Add(i);
             }
             foreach(string i in BufferListUpdate(7))
             {
@@ -215,10 +215,6 @@ namespace DBStructCourse
             foreach(string i in BufferListUpdate(4))
             {
                 comboBoxEventType.Items.Add(i);
-            }
-            foreach(string i in BufferListUpdate(5))
-            {
-                comboBoxLocaleEvent.Items.Add(i);
             }
         }
 
@@ -374,8 +370,20 @@ namespace DBStructCourse
         private void buttonDirDelete_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.Delete(DirTables[tabControlDir.SelectedIndex], $"Код = {dataGridViewDir.SelectedRows[0].Cells[0].Value}"));
+            DirTabUpdate();
             database.Dispose();
+        }
+
+        int GetAddingConstructCode()
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewConsSelect.DataSource = database.ReturnTable(
+            "Код",
+            "Db_Construct",
+            "WHERE Код = (SELECT MAX(Код) FROM Db_Construct)").Tables[0].DefaultView;
+            database.Dispose();
+            return Convert.ToInt32(dataGridViewConsSelect.Rows[0].Cells[0].Value);
         }
 
         private void buttonAddConstruct_Click(object sender, EventArgs e)
@@ -389,8 +397,10 @@ namespace DBStructCourse
                     Convert.ToInt32(textBoxConstructCapacity.Text),
                     Convert.ToInt32(textBoxConstructSquare.Text),
                     GetDirCode("Db_ConstructType", comboBoxConstructType.SelectedItem.ToString(), 1),
-                    GetDirCode("Db_Region", comboBoxConstructRegion.SelectedItem.ToString(), 1),
                     textBoxConstructAddress.Text));
+            listBoxMainLog.Items.Add(database.ConstructRegionConnect(
+                GetDirCode("Db_Region", comboBoxConstructRegion.SelectedItem.ToString(), 1),
+                GetAddingConstructCode()));
             MainTabUpdate(2);
             database.Dispose();
         }
@@ -398,9 +408,12 @@ namespace DBStructCourse
         int GetAddingEventCode()
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            dataGridViewListReturner.DataSource = database.ReturnTable("*", "Db_Event", null).Tables[0].DefaultView;
+            dataGridViewListReturner.DataSource = database.ReturnTable(
+                "Код", 
+                "Db_Event", 
+                "WHERE Код = (SELECT MAX(Код) FROM Db_Event)").Tables[0].DefaultView;
             database.Dispose();
-            return Convert.ToInt32(dataGridViewListReturner.Rows[dataGridViewListReturner.Rows.Count - 2].Cells[0].Value) + 1;
+            return Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value);
         }
 
         private void buttonEventAdd_Click(object sender, EventArgs e)
@@ -409,13 +422,41 @@ namespace DBStructCourse
             listBoxMainLog.Items.Add(database.AddEvent(
                 textBoxEventName.Text,
                 textBoxEventShortName.Text,
-                dateTimePickerEventDate.Value,
-                Convert.ToInt32(textBoxEventPplAmount.Text),
-                GetDirCode("Db_Construct", comboBoxEventConstruct.SelectedItem.ToString(), 1),
                 GetDirCode("Db_EventType", comboBoxEventType.SelectedItem.ToString(), 1),
-                GetDirCode("Db_Locale", comboBoxLocaleEvent.SelectedItem.ToString(), 1),
-                GetAddingEventCode()));
+                GetDirCode("Db_Locale", comboBoxLocaleEvent.SelectedItem.ToString(), 1)));
+            listBoxMainLog.Items.Add(database.AddEventDate(
+                GetAddingEventCode(),
+                GetDirCode("Db_Construct", comboBoxEventConstruct.SelectedItem.ToString(), 1),
+                dateTimePickerEventDate.Value,
+                Convert.ToInt32(textBoxEventPplAmount.Text)));
             MainTabUpdate(3);
+            database.Dispose();
+        }
+
+        // Запросы на отчет
+
+        string GetSQLFormatDate(string Date)
+        {
+            string Temp = string.Empty;
+            foreach (char i in Date)
+            {
+                if (i != '.')
+                {
+                    Temp += i;
+                }
+            }
+            return Temp;
+        }
+
+        private void buttonReport1_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewReport1.DataSource = database.ReturnTable(
+                "*",
+                "Db_Construct",
+                $"WHERE ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport1From.Value.ToString("yyyy/MM/dd"))}' " +
+                $"AND ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport1To.Value.ToString("yyyy/MM/dd"))}' " +
+                $"AND КодТипа = {GetDirCode("Db_ConstructType", comboBoxReportType.SelectedItem.ToString(), 1)}").Tables[0].DefaultView;
             database.Dispose();
         }
     }

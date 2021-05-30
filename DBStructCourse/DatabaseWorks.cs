@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using System.Data.SqlClient;
 
 namespace DBStructCourse
@@ -63,6 +64,19 @@ namespace DBStructCourse
             try
             {
                 SqlCommand command = new SqlCommand($"UPDATE {Table} SET {Value} WHERE {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string Delete(string Table, string Argument)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand($"DELETE FROM {Table} WHERE {Argument}", connection);
                 return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
@@ -178,13 +192,13 @@ namespace DBStructCourse
             }
         }
 
-        public string AddConstruct(string Name, string ShName, DateTime Date, int Capacity, float Square, int TypeCode, int RegionCode, string Address)
+        public string AddConstruct(string Name, string ShName, DateTime Date, int Capacity, float Square, int TypeCode, string Address)
         {
             try
             {
                 SqlCommand command = new SqlCommand(
-                    $"INSERT INTO Db_Construct (Название_Сооруж, Кр_Название_Сооруж, ДатаПринятия_Сооруж, Вместимость_Сооруж, Площадь_Сооруж, КодТипа, КодОблорг) " +
-                    $"VALUES ('{Name}', '{ShName}', '{Date}', {Capacity}, {Square}, {TypeCode}, {RegionCode})", connection);
+                    $"INSERT INTO Db_Construct (Название_Сооруж, Кр_Название_Сооруж, ДатаПринятия_Сооруж, Вместимость_Сооруж, Площадь_Сооруж, КодТипа) " +
+                    $"VALUES ('{Name}', '{ShName}', '{Date}', {Capacity}, {Square}, {TypeCode})", connection);
                 int Amount = command.ExecuteNonQuery();
                 command = new SqlCommand(
                     $"INSERT INTO Db_Address (АдресЗнач) " +
@@ -197,18 +211,44 @@ namespace DBStructCourse
             }
         }
 
-        public string AddEvent(string Name, string ShName, DateTime Date, int PeopleAmount, int ConstructCode, int EventTypeCode, int LocaleCode, int EventCode)
+        public string ConstructRegionConnect(int RegionCode, int ConstructCode)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    $"INSERT INTO Col_RegionsAndConstructs (КодРегиона, КодСооруж) " +
+                    $"VALUES ({RegionCode}, {ConstructCode})", connection);
+                return $"Команда выполнена. Задействовано строк таблиц: {command.ExecuteNonQuery()}";
+            }
+            catch(Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string AddEvent(string Name, string ShName, int EventTypeCode, int LocaleCode)
         {
             try
             {
                 SqlCommand command = new SqlCommand(
                     $"INSERT INTO Db_Event (Название_Мероприятия, Кр_Название_Мероприятия, КодТипа, КодНасПункта) " +
                     $"VALUES ('{Name}', '{ShName}', {EventTypeCode}, {LocaleCode})", connection);
-                int Amount = command.ExecuteNonQuery();
-                command = new SqlCommand(
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string AddEventDate(int EventCode, int ConstructCode, DateTime Date, int PeopleAmount)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
                     $"INSERT INTO Db_EventDate (Код_Мероприятия, Код_Сооруж, ДатаПроведения, КолВо_Человек)" +
                     $"VALUES ({EventCode}, {ConstructCode}, '{Date}', {PeopleAmount})", connection);
-                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery() + Amount}";
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
             }
             catch (Exception e)
             {
