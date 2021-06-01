@@ -396,7 +396,7 @@ namespace DBStructCourse
                     textBoxConstructShortName.Text,
                     dateTimePickerConstructBalance.Value,
                     Convert.ToInt32(textBoxConstructCapacity.Text),
-                    Convert.ToInt32(textBoxConstructSquare.Text),
+                    Convert.ToSingle(textBoxConstructSquare.Text),
                     GetDirCode("Db_ConstructType", comboBoxConstructType.SelectedItem.ToString(), 1),
                     textBoxConstructAddress.Text));
             listBoxMainLog.Items.Add(database.ConstructRegionConnect(
@@ -489,7 +489,13 @@ namespace DBStructCourse
         private void buttonRedactRegion_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.UpdateRegion(
+                textBoxRegionName.Text,
+                textBoxRegionShortName.Text,
+                textBoxRegionEmail.Text,
+                GetDirCode("Db_Locale", comboBoxRegionLocale.SelectedItem.ToString(), 1),
+                Convert.ToInt32(dataGridViewRegion.SelectedRows[0].Cells[0].Value)));
+            MainTabUpdate(1);
             database.Dispose();
         }
 
@@ -505,7 +511,19 @@ namespace DBStructCourse
         private void buttonConstructionRedact_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.UpdateConstruct(
+                textBoxConstructName.Text,
+                textBoxConstructShortName.Text,
+                dateTimePickerConstructBalance.Value,
+                Convert.ToInt32(textBoxConstructCapacity.Text),
+                Convert.ToSingle(textBoxConstructSquare.Text),
+                GetDirCode("Db_ConstructType", comboBoxConstructType.SelectedItem.ToString(), 1),
+                textBoxConstructAddress.Text,
+                Convert.ToInt32(dataGridViewConstruct.SelectedRows[0].Cells[0].Value)));
+            listBoxMainLog.Items.Add(database.UpdateConstructRegionConnection(
+                GetDirCode("Db_Region", comboBoxConstructRegion.SelectedItem.ToString(), 1),
+                Convert.ToInt32(dataGridViewConstruct.SelectedRows[0].Cells[0].Value)));
+            MainTabUpdate(2);
             database.Dispose();
         }
 
@@ -539,6 +557,28 @@ namespace DBStructCourse
             textBoxLocaleName.Text = dataGridViewLocale.SelectedRows[0].Cells[1].Value.ToString();
             textBoxLocaleShortName.Text = dataGridViewLocale.SelectedRows[0].Cells[2].Value.ToString();
             comboBoxLocaleType.Text = dataGridViewLocale.SelectedRows[0].Cells[3].Value.ToString();
+        }
+
+        private void dataGridViewRegion_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBoxRegionName.Text = dataGridViewRegion.SelectedRows[0].Cells[1].Value.ToString();
+            textBoxRegionShortName.Text = dataGridViewRegion.SelectedRows[0].Cells[2].Value.ToString();
+            textBoxRegionEmail.Text = dataGridViewRegion.SelectedRows[0].Cells[3].Value.ToString();
+            comboBoxRegionLocale.Text = dataGridViewRegion.SelectedRows[0].Cells[4].Value.ToString();
+        }
+
+        private void dataGridViewConstruct_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            textBoxConstructName.Text = dataGridViewConstruct.SelectedRows[0].Cells[1].Value.ToString();
+            textBoxConstructShortName.Text = dataGridViewConstruct.SelectedRows[0].Cells[2].Value.ToString();
+            dateTimePickerConstructBalance.Value = Convert.ToDateTime(dataGridViewConstruct.SelectedRows[0].Cells[3].Value);
+            textBoxConstructCapacity.Text = dataGridViewConstruct.SelectedRows[0].Cells[4].Value.ToString();
+            textBoxConstructSquare.Text = dataGridViewConstruct.SelectedRows[0].Cells[5].Value.ToString();
+            comboBoxConstructType.Text = dataGridViewConstruct.SelectedRows[0].Cells[6].Value.ToString();
+            comboBoxConstructRegion.Text = dataGridViewConstruct.SelectedRows[0].Cells[7].Value.ToString();
+            textBoxConstructAddress.Text = dataGridViewConstruct.SelectedRows[0].Cells[8].Value.ToString();
+            database.Dispose();
         }
     }
 }

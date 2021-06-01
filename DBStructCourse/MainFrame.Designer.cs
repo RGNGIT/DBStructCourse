@@ -83,6 +83,8 @@ namespace DBStructCourse
             this.textBoxConstructName = new System.Windows.Forms.TextBox();
             this.dataGridViewConstruct = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.buttonEventDelete = new System.Windows.Forms.Button();
+            this.buttonEventRedact = new System.Windows.Forms.Button();
             this.buttonEventAdd = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.comboBoxEventConstruct = new System.Windows.Forms.ComboBox();
@@ -136,8 +138,6 @@ namespace DBStructCourse
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.buttonShowLog = new System.Windows.Forms.Button();
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
-            this.buttonEventRedact = new System.Windows.Forms.Button();
-            this.buttonEventDelete = new System.Windows.Forms.Button();
             this.dataGridViewConsSelect = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
@@ -335,7 +335,7 @@ namespace DBStructCourse
             // 
             // buttonRedactRegion
             // 
-            this.buttonRedactRegion.Location = new System.Drawing.Point(130, 167);
+            this.buttonRedactRegion.Location = new System.Drawing.Point(129, 167);
             this.buttonRedactRegion.Name = "buttonRedactRegion";
             this.buttonRedactRegion.Size = new System.Drawing.Size(123, 23);
             this.buttonRedactRegion.TabIndex = 28;
@@ -491,6 +491,7 @@ namespace DBStructCourse
             this.dataGridViewRegion.Name = "dataGridViewRegion";
             this.dataGridViewRegion.Size = new System.Drawing.Size(726, 606);
             this.dataGridViewRegion.TabIndex = 3;
+            this.dataGridViewRegion.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewRegion_RowHeaderMouseClick);
             // 
             // tabPage3
             // 
@@ -692,6 +693,7 @@ namespace DBStructCourse
             this.dataGridViewConstruct.Name = "dataGridViewConstruct";
             this.dataGridViewConstruct.Size = new System.Drawing.Size(726, 606);
             this.dataGridViewConstruct.TabIndex = 1;
+            this.dataGridViewConstruct.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewConstruct_RowHeaderMouseClick);
             // 
             // tabPage4
             // 
@@ -720,6 +722,27 @@ namespace DBStructCourse
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Мероприятие";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // buttonEventDelete
+            // 
+            this.buttonEventDelete.ForeColor = System.Drawing.Color.Red;
+            this.buttonEventDelete.Location = new System.Drawing.Point(8, 531);
+            this.buttonEventDelete.Name = "buttonEventDelete";
+            this.buttonEventDelete.Size = new System.Drawing.Size(367, 23);
+            this.buttonEventDelete.TabIndex = 29;
+            this.buttonEventDelete.Text = "Удалить мероприятие";
+            this.buttonEventDelete.UseVisualStyleBackColor = true;
+            this.buttonEventDelete.Click += new System.EventHandler(this.buttonEventDelete_Click);
+            // 
+            // buttonEventRedact
+            // 
+            this.buttonEventRedact.Location = new System.Drawing.Point(8, 560);
+            this.buttonEventRedact.Name = "buttonEventRedact";
+            this.buttonEventRedact.Size = new System.Drawing.Size(367, 23);
+            this.buttonEventRedact.TabIndex = 28;
+            this.buttonEventRedact.Text = "Редактировать мероприятие";
+            this.buttonEventRedact.UseVisualStyleBackColor = true;
+            this.buttonEventRedact.Click += new System.EventHandler(this.buttonEventRedact_Click);
             // 
             // buttonEventAdd
             // 
@@ -1226,27 +1249,6 @@ namespace DBStructCourse
             this.listBoxMainLog.Name = "listBoxMainLog";
             this.listBoxMainLog.Size = new System.Drawing.Size(1094, 576);
             this.listBoxMainLog.TabIndex = 1;
-            // 
-            // buttonEventRedact
-            // 
-            this.buttonEventRedact.Location = new System.Drawing.Point(8, 560);
-            this.buttonEventRedact.Name = "buttonEventRedact";
-            this.buttonEventRedact.Size = new System.Drawing.Size(367, 23);
-            this.buttonEventRedact.TabIndex = 28;
-            this.buttonEventRedact.Text = "Редактировать мероприятие";
-            this.buttonEventRedact.UseVisualStyleBackColor = true;
-            this.buttonEventRedact.Click += new System.EventHandler(this.buttonEventRedact_Click);
-            // 
-            // buttonEventDelete
-            // 
-            this.buttonEventDelete.ForeColor = System.Drawing.Color.Red;
-            this.buttonEventDelete.Location = new System.Drawing.Point(8, 531);
-            this.buttonEventDelete.Name = "buttonEventDelete";
-            this.buttonEventDelete.Size = new System.Drawing.Size(367, 23);
-            this.buttonEventDelete.TabIndex = 29;
-            this.buttonEventDelete.Text = "Удалить мероприятие";
-            this.buttonEventDelete.UseVisualStyleBackColor = true;
-            this.buttonEventDelete.Click += new System.EventHandler(this.buttonEventDelete_Click);
             // 
             // dataGridViewConsSelect
             // 

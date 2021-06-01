@@ -276,7 +276,66 @@ namespace DBStructCourse
             }
         }
 
+        public string UpdateRegion(string Name, string ShName, string email, int LocaleCode, int Key)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "UPDATE Db_Region SET " +
+                    $"Db_Region.Название_ОблОрг = '{Name}', " +
+                    $"Db_Region.Кр_Назв_ОблОрг = '{ShName}', " +
+                    $"Db_Region.ЭлАдрес_ОблОрг = '{email}', " +
+                    $"Db_Region.КодНасПункта = {LocaleCode} " +
+                    $"WHERE Db_Region.Код = {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch(Exception e)
+            {
+                return e.ToString();
+            }
+        }
 
+        public string UpdateConstruct(string Name, string ShName, DateTime Date, int Capacity, float Square, int TypeCode, string Address, int Key)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "UPDATE Db_Construct SET " +
+                    $"Db_Construct.Название_Сооруж = '{Name}', " +
+                    $"Db_Construct.Кр_Название_Сооруж = '{ShName}', " +
+                    $"Db_Construct.ДатаПринятия_Сооруж = '{Date}', " +
+                    $"Db_Construct.Вместимость_Сооруж = {Capacity}, " +
+                    $"Db_Construct.Площадь_Сооруж = {Square}, " +
+                    $"Db_Construct.КодТипа = {TypeCode} " +
+                    $"WHERE Db_Construct.Код = {Key}", connection);
+                int Amount = command.ExecuteNonQuery();
+                command = new SqlCommand(
+                    "UPDATE Db_Address SET " +
+                    $"Db_Address.АдресЗнач = '{Address}' " +
+                    $"WHERE Db_Address.Код = {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery() + Amount}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string UpdateConstructRegionConnection(int RegionCode, int Key)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "UPDATE Col_RegionsAndConstructs SET " +
+                    $"Col_RegionsAndConstructs.КодРегиона = {RegionCode} " +
+                    $"WHERE Col_RegionsAndConstructs.КодСооруж = {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблиц: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
 
     }
 }
