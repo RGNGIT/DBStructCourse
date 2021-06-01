@@ -337,5 +337,42 @@ namespace DBStructCourse
             }
         }
 
+        public string UpdateEvent(string Name, string ShName, int EventTypeCode, int LocaleCode, int Key)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "UPDATE Db_Event SET " +
+                    $"Db_Event.Название_Мероприятия = '{Name}', " +
+                    $"Db_Event.Кр_Название_Мероприятия = '{ShName}', " +
+                    $"Db_Event.КодТипа = {EventTypeCode}, " +
+                    $"Db_Event.КодНасПункта = {LocaleCode} " +
+                    $"WHERE Db_Event.Код = {Key}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        public string UpdateEventDate(int EventCode, int ConstructCode, DateTime Date, int PeopleAmount)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "UPDATE Db_EventDate SET " +
+                    $"Db_EventDate.Код_Сооруж = {ConstructCode}, " +
+                    $"Db_EventDate.ДатаПроведения = '{Date}', " +
+                    $"Db_EventDate.КолВо_Человек = {PeopleAmount} " +
+                    $"WHERE Db_EventDate.Код_Мероприятия = {EventCode}", connection);
+                return $"Команда выполнена. Задействовано строк таблицы: {command.ExecuteNonQuery()}";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
     }
 }

@@ -879,6 +879,7 @@ namespace DBStructCourse
             this.dataGridViewEvent.Name = "dataGridViewEvent";
             this.dataGridViewEvent.Size = new System.Drawing.Size(726, 606);
             this.dataGridViewEvent.TabIndex = 1;
+            this.dataGridViewEvent.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEvent_RowHeaderMouseClick);
             // 
             // tabPage5
             // 

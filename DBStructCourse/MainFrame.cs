@@ -539,7 +539,18 @@ namespace DBStructCourse
         private void buttonEventRedact_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.UpdateEvent(
+                textBoxEventName.Text,
+                textBoxEventShortName.Text,
+                GetDirCode("Db_EventType", comboBoxEventType.SelectedItem.ToString(), 1),
+                GetDirCode("Db_Locale", comboBoxLocaleEvent.SelectedItem.ToString(), 1),
+                Convert.ToInt32(dataGridViewEvent.SelectedRows[0].Cells[0].Value)));
+            listBoxMainLog.Items.Add(database.UpdateEventDate(
+                Convert.ToInt32(dataGridViewEvent.SelectedRows[0].Cells[0].Value),
+                GetDirCode("Db_Construct", comboBoxEventConstruct.SelectedItem.ToString(), 1),
+                dateTimePickerEventDate.Value,
+                Convert.ToInt32(textBoxEventPplAmount.Text)));
+            MainTabUpdate(3);
             database.Dispose();
         }
 
@@ -569,7 +580,6 @@ namespace DBStructCourse
 
         private void dataGridViewConstruct_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            DatabaseWorks database = new DatabaseWorks(Credentials);
             textBoxConstructName.Text = dataGridViewConstruct.SelectedRows[0].Cells[1].Value.ToString();
             textBoxConstructShortName.Text = dataGridViewConstruct.SelectedRows[0].Cells[2].Value.ToString();
             dateTimePickerConstructBalance.Value = Convert.ToDateTime(dataGridViewConstruct.SelectedRows[0].Cells[3].Value);
@@ -578,7 +588,17 @@ namespace DBStructCourse
             comboBoxConstructType.Text = dataGridViewConstruct.SelectedRows[0].Cells[6].Value.ToString();
             comboBoxConstructRegion.Text = dataGridViewConstruct.SelectedRows[0].Cells[7].Value.ToString();
             textBoxConstructAddress.Text = dataGridViewConstruct.SelectedRows[0].Cells[8].Value.ToString();
-            database.Dispose();
+        }
+
+        private void dataGridViewEvent_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBoxEventName.Text = dataGridViewEvent.SelectedRows[0].Cells[1].Value.ToString();
+            textBoxEventShortName.Text = dataGridViewEvent.SelectedRows[0].Cells[2].Value.ToString();
+            comboBoxEventType.Text = dataGridViewEvent.SelectedRows[0].Cells[3].Value.ToString();
+            comboBoxLocaleEvent.Text = dataGridViewEvent.SelectedRows[0].Cells[4].Value.ToString();
+            dateTimePickerEventDate.Value = Convert.ToDateTime(dataGridViewEvent.SelectedRows[0].Cells[5].Value);
+            textBoxEventPplAmount.Text = dataGridViewEvent.SelectedRows[0].Cells[6].Value.ToString();
+            comboBoxEventConstruct.Text = dataGridViewEvent.SelectedRows[0].Cells[7].Value.ToString();
         }
     }
 }
