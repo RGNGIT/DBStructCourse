@@ -480,7 +480,10 @@ namespace DBStructCourse
         private void buttonDeleteLocale_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.Delete(
+                "Db_Locale",
+                $"Db_Locale.Код = {dataGridViewLocale.SelectedRows[0].Cells[0].Value}"));
+            MainTabUpdate(0);
             database.Dispose();
         }
 
@@ -502,7 +505,10 @@ namespace DBStructCourse
         private void buttonRegDelete_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.Delete(
+                "Db_Region",
+                $"Db_Region.Код = {dataGridViewRegion.SelectedRows[0].Cells[0].Value}"));
+            MainTabUpdate(1);
             database.Dispose();
         }
 
@@ -530,7 +536,10 @@ namespace DBStructCourse
         private void buttonConstructDelete_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.Delete(
+                "Db_Construct",
+                $"Db_Construct.Код = {dataGridViewConstruct.SelectedRows[0].Cells[0].Value}"));
+            MainTabUpdate(2);
             database.Dispose();
         }
 
@@ -557,7 +566,10 @@ namespace DBStructCourse
         private void buttonEventDelete_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-
+            listBoxMainLog.Items.Add(database.Delete(
+                "Db_Event",
+                $"Db_Event.Код = {dataGridViewEvent.SelectedRows[0].Cells[0].Value}"));
+            MainTabUpdate(3);
             database.Dispose();
         }
 
