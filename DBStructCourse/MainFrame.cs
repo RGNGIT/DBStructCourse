@@ -16,7 +16,7 @@ namespace DBStructCourse
             ComboUpdates();
         }
 
-        string Credentials = 
+        string Credentials =
             $"Server = {Program.Server};" +
             $"Integrated security = {Program.Security};" +
             $"database = {Program.Database};";
@@ -24,7 +24,7 @@ namespace DBStructCourse
         private void buttonShowLog_Click(object sender, EventArgs e)
         {
             List<string> Temp = new List<string>();
-            foreach(string i in listBoxMainLog.Items)
+            foreach (string i in listBoxMainLog.Items)
             {
                 Temp.Add(i);
             }
@@ -55,11 +55,11 @@ namespace DBStructCourse
             ComboUpdates();
         }
 
-        string[] DirTables = new string[4] 
-        { 
-            "Db_Phones", 
-            "Db_LocaleType", 
-            "Db_ConstructType", 
+        string[] DirTables = new string[4]
+        {
+            "Db_Phones",
+            "Db_LocaleType",
+            "Db_ConstructType",
             "Db_EventType"
         };
 
@@ -79,8 +79,8 @@ namespace DBStructCourse
             {
                 case 0: // Обновить таблицу нас.пунктов
                     dataGridViewLocale.DataSource = database.ReturnTable(
-                        "Db_Locale.Код, Название_НасПункта as Название, Кр_Название_НасПункта as КраткоеНазвание, Db_LocaleType.ТипНасПункт as Тип", 
-                        "Db_Locale, Db_LocaleType", 
+                        "Db_Locale.Код, Название_НасПункта as Название, Кр_Название_НасПункта as КраткоеНазвание, Db_LocaleType.ТипНасПункт as Тип",
+                        "Db_Locale, Db_LocaleType",
                         "WHERE Db_Locale.КодТипа = Db_LocaleType.Код").Tables[0].DefaultView;
                     break;
                 case 1: // Обновить таблицу областных организаций
@@ -115,7 +115,7 @@ namespace DBStructCourse
             {
                 case 0: // Заполнение типов нас.пунктов
                     dataGridViewListReturner.DataSource = database.ReturnTable("ТипНасПункт", "Db_LocaleType", null).Tables[0].DefaultView;
-                    for(int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+                    for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
                     {
                         Temp.Add(dataGridViewListReturner.Rows[i].Cells[0].Value.ToString());
                     }
@@ -186,7 +186,7 @@ namespace DBStructCourse
             comboBoxEventType.Items.Clear();
             comboBoxLocaleEvent.Items.Clear();
             comboBoxReportType.Items.Clear();
-            foreach(string i in BufferListUpdate(0))
+            foreach (string i in BufferListUpdate(0))
             {
                 comboBoxLocaleType.Items.Add(i);
             }
@@ -195,25 +195,25 @@ namespace DBStructCourse
                 comboBoxRegionLocale.Items.Add(i);
                 comboBoxLocaleEvent.Items.Add(i);
             }
-            foreach(string i in BufferListUpdate(6))
+            foreach (string i in BufferListUpdate(6))
             {
                 comboBoxPhoneRegion.Items.Add(i);
                 comboBoxConstructRegion.Items.Add(i);
             }
-            foreach(string i in BufferListUpdate(2))
+            foreach (string i in BufferListUpdate(2))
             {
                 comboBoxPhoneRegionPhone.Items.Add(i);
             }
-            foreach(string i in BufferListUpdate(3))
+            foreach (string i in BufferListUpdate(3))
             {
                 comboBoxConstructType.Items.Add(i);
                 comboBoxReportType.Items.Add(i);
             }
-            foreach(string i in BufferListUpdate(7))
+            foreach (string i in BufferListUpdate(7))
             {
                 comboBoxEventConstruct.Items.Add(i);
             }
-            foreach(string i in BufferListUpdate(4))
+            foreach (string i in BufferListUpdate(4))
             {
                 comboBoxEventType.Items.Add(i);
             }
@@ -258,9 +258,9 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewListReturner.DataSource = database.ReturnTable("*", Table, null).Tables[0].DefaultView;
-            for(int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+            for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
             {
-                if(dataGridViewListReturner.Rows[i].Cells[TableIndex].Value.ToString() == ToFind)
+                if (dataGridViewListReturner.Rows[i].Cells[TableIndex].Value.ToString() == ToFind)
                 {
                     return Convert.ToInt32(dataGridViewListReturner.Rows[i].Cells[0].Value);
                 }
@@ -273,8 +273,8 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             listBoxMainLog.Items.Add(database.AddLocale(
-                textBoxLocaleName.Text, 
-                textBoxLocaleShortName.Text, 
+                textBoxLocaleName.Text,
+                textBoxLocaleShortName.Text,
                 GetDirCode("Db_LocaleType", comboBoxLocaleType.SelectedItem.ToString(), 1)));
             MainTabUpdate(0);
             database.Dispose();
@@ -284,9 +284,9 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             listBoxMainLog.Items.Add(database.AddRegion(
-                textBoxRegionName.Text, 
-                textBoxRegionShortName.Text, 
-                textBoxRegionEmail.Text, 
+                textBoxRegionName.Text,
+                textBoxRegionShortName.Text,
+                textBoxRegionEmail.Text,
                 GetDirCode("Db_Locale", comboBoxRegionLocale.SelectedItem.ToString(), 1)));
             ComboUpdates();
             MainTabUpdate(1);
@@ -322,9 +322,9 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewListReturner.DataSource = database.ReturnTable("*", "Db_Phones", null).Tables[0].DefaultView;
-            for(int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
+            for (int i = 0; i < dataGridViewListReturner.Rows.Count - 1; i++)
             {
-                if(comboBoxPhoneRegionPhone.SelectedItem.ToString() == dataGridViewListReturner.Rows[i].Cells[2].Value.ToString())
+                if (comboBoxPhoneRegionPhone.SelectedItem.ToString() == dataGridViewListReturner.Rows[i].Cells[2].Value.ToString())
                 {
                     labelPhone.Text = $"Телефон ({dataGridViewListReturner.Rows[i].Cells[1].Value})";
                 }
@@ -337,7 +337,7 @@ namespace DBStructCourse
         private void buttonDirUpdate_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
-            switch(tabControlDir.SelectedIndex)
+            switch (tabControlDir.SelectedIndex)
             {
                 case 0:
                     listBoxMainLog.Items.Add(database.UpdateDirectory(
@@ -410,8 +410,8 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewListReturner.DataSource = database.ReturnTable(
-                "Код", 
-                "Db_Event", 
+                "Код",
+                "Db_Event",
                 "WHERE Код = (SELECT MAX(Код) FROM Db_Event)").Tables[0].DefaultView;
             database.Dispose();
             return Convert.ToInt32(dataGridViewListReturner.Rows[0].Cells[0].Value);
@@ -436,10 +436,10 @@ namespace DBStructCourse
 
         // Запросы на отчет
 
-        string GetSQLFormatDate(string Date)
+        string GetSQLFormatDate(DateTime Date)
         {
             string Temp = string.Empty;
-            foreach (char i in Date)
+            foreach (char i in Date.ToString("yyyy/MM/dd"))
             {
                 if (i != '.')
                 {
@@ -455,8 +455,8 @@ namespace DBStructCourse
             dataGridViewReport1.DataSource = database.ReturnTable(
                 "Db_Construct.Код as Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_Region.Название_ОблОрг as Организация",
                 "Db_Construct, Db_Region, Col_RegionsAndConstructs",
-                $"WHERE ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport1From.Value.ToString("yyyy/MM/dd"))}' " +
-                $"AND ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport1To.Value.ToString("yyyy/MM/dd"))}' " +
+                $"WHERE ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport1From.Value)}' " +
+                $"AND ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport1To.Value)}' " +
                 $"AND КодТипа = {GetDirCode("Db_ConstructType", comboBoxReportType.SelectedItem.ToString(), 1)} " +
                 $"AND Db_Construct.Код = Col_RegionsAndConstructs.КодСооруж " +
                 $"AND Db_Region.Код = Col_RegionsAndConstructs.КодРегиона").Tables[0].DefaultView;
