@@ -140,6 +140,15 @@ namespace DBStructCourse
             this.listBoxMainLog = new System.Windows.Forms.ListBox();
             this.dataGridViewConsSelect = new System.Windows.Forms.DataGridView();
             this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
+            this.dataGridViewReport3 = new System.Windows.Forms.DataGridView();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.dateTimePickerReport3To = new System.Windows.Forms.DateTimePicker();
+            this.label36 = new System.Windows.Forms.Label();
+            this.dateTimePickerReport3From = new System.Windows.Forms.DateTimePicker();
+            this.buttonReport3 = new System.Windows.Forms.Button();
+            this.dataGridViewReport3Amount = new System.Windows.Forms.DataGridView();
+            this.label37 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -161,9 +170,12 @@ namespace DBStructCourse
             this.tabControlTasks.SuspendLayout();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport1)).BeginInit();
+            this.tabPage15.SuspendLayout();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3Amount)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -1210,6 +1222,15 @@ namespace DBStructCourse
             // 
             // tabPage15
             // 
+            this.tabPage15.Controls.Add(this.label37);
+            this.tabPage15.Controls.Add(this.dataGridViewReport3Amount);
+            this.tabPage15.Controls.Add(this.buttonReport3);
+            this.tabPage15.Controls.Add(this.label34);
+            this.tabPage15.Controls.Add(this.label35);
+            this.tabPage15.Controls.Add(this.dateTimePickerReport3To);
+            this.tabPage15.Controls.Add(this.label36);
+            this.tabPage15.Controls.Add(this.dateTimePickerReport3From);
+            this.tabPage15.Controls.Add(this.dataGridViewReport3);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
@@ -1267,6 +1288,82 @@ namespace DBStructCourse
             this.dataGridViewListReturner.Size = new System.Drawing.Size(236, 143);
             this.dataGridViewListReturner.TabIndex = 28;
             // 
+            // dataGridViewReport3
+            // 
+            this.dataGridViewReport3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReport3.Location = new System.Drawing.Point(361, 6);
+            this.dataGridViewReport3.Name = "dataGridViewReport3";
+            this.dataGridViewReport3.Size = new System.Drawing.Size(726, 571);
+            this.dataGridViewReport3.TabIndex = 3;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 6);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(86, 13);
+            this.label34.TabIndex = 36;
+            this.label34.Text = "Дата принятия:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(6, 59);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(21, 13);
+            this.label35.TabIndex = 35;
+            this.label35.Text = "По";
+            // 
+            // dateTimePickerReport3To
+            // 
+            this.dateTimePickerReport3To.Location = new System.Drawing.Point(6, 75);
+            this.dateTimePickerReport3To.Name = "dateTimePickerReport3To";
+            this.dateTimePickerReport3To.Size = new System.Drawing.Size(349, 20);
+            this.dateTimePickerReport3To.TabIndex = 34;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 20);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(14, 13);
+            this.label36.TabIndex = 33;
+            this.label36.Text = "С";
+            // 
+            // dateTimePickerReport3From
+            // 
+            this.dateTimePickerReport3From.Location = new System.Drawing.Point(6, 36);
+            this.dateTimePickerReport3From.Name = "dateTimePickerReport3From";
+            this.dateTimePickerReport3From.Size = new System.Drawing.Size(349, 20);
+            this.dateTimePickerReport3From.TabIndex = 32;
+            // 
+            // buttonReport3
+            // 
+            this.buttonReport3.Location = new System.Drawing.Point(6, 554);
+            this.buttonReport3.Name = "buttonReport3";
+            this.buttonReport3.Size = new System.Drawing.Size(349, 23);
+            this.buttonReport3.TabIndex = 37;
+            this.buttonReport3.Text = "Выполнить";
+            this.buttonReport3.UseVisualStyleBackColor = true;
+            this.buttonReport3.Click += new System.EventHandler(this.buttonReport3_Click);
+            // 
+            // dataGridViewReport3Amount
+            // 
+            this.dataGridViewReport3Amount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReport3Amount.Location = new System.Drawing.Point(6, 114);
+            this.dataGridViewReport3Amount.Name = "dataGridViewReport3Amount";
+            this.dataGridViewReport3Amount.Size = new System.Drawing.Size(349, 434);
+            this.dataGridViewReport3Amount.TabIndex = 38;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(6, 98);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(130, 13);
+            this.label37.TabIndex = 39;
+            this.label37.Text = "Количества сооружений";
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1306,9 +1403,13 @@ namespace DBStructCourse
             this.tabPage13.ResumeLayout(false);
             this.tabPage13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport1)).EndInit();
+            this.tabPage15.ResumeLayout(false);
+            this.tabPage15.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3Amount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1426,6 +1527,15 @@ namespace DBStructCourse
         private System.Windows.Forms.Button buttonEventRedact;
         private System.Windows.Forms.DataGridView dataGridViewConsSelect;
         private System.Windows.Forms.DataGridView dataGridViewListReturner;
+        private System.Windows.Forms.DataGridView dataGridViewReport3;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.DateTimePicker dateTimePickerReport3To;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.DateTimePicker dateTimePickerReport3From;
+        private System.Windows.Forms.Button buttonReport3;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.DataGridView dataGridViewReport3Amount;
     }
 }
 

@@ -14,6 +14,8 @@ namespace DBStructCourse
             DirTabUpdate();
             MainTabUpdate(tabControlMain.SelectedIndex);
             ComboUpdates();
+            dataGridViewReport3Amount.Columns.Add("_regName", "НазваниеОрганизации");
+            dataGridViewReport3Amount.Columns.Add("_consAmount", "КоличествоСооружений");
         }
 
         string Credentials =
@@ -463,6 +465,53 @@ namespace DBStructCourse
             database.Dispose();
         }
 
+        void CountAmount()
+        {
+            List<string> Name = new List<string>();
+            List<int> Amount = new List<int>();
+            int AmountCounter = 0;
+            string Check = dataGridViewReport3.Rows[0].Cells[0].Value.ToString();
+            dataGridViewReport3Amount.Rows.Clear();
+            for(int i = 0; i < dataGridViewReport3.Rows.Count - 1; i++)
+            {
+                if(dataGridViewReport3.Rows[i].Cells[0].Value.ToString() != Check)
+                {
+                    Amount.Add(AmountCounter);
+                    AmountCounter = 0;
+                }
+                if(!Name.Contains(dataGridViewReport3.Rows[i].Cells[0].Value.ToString()))
+                {
+                    Name.Add(dataGridViewReport3.Rows[i].Cells[0].Value.ToString());
+                }
+                Check = dataGridViewReport3.Rows[i].Cells[0].Value.ToString();
+                AmountCounter++;
+                if(i == dataGridViewReport3.Rows.Count - 2)
+                {
+                    Amount.Add(AmountCounter);
+                }
+            }
+            for(int i = 0; i < Name.Count; i++)
+            {
+                dataGridViewReport3Amount.Rows.Add(Name[i], Amount[i]);
+            }
+        }
+
+        private void buttonReport3_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            dataGridViewReport3.DataSource = database.ReturnTable(
+                "Db_Region.Название_ОблОрг as НазваниеОрганизации, Db_Construct.Название_Сооруж as НазваниеСооружения, Db_ConstructType.Тип_Сооруж as ТипСооружения", 
+                "Db_Region, Db_Construct, Db_ConstructType, Col_RegionsAndConstructs", 
+                $"WHERE Db_Construct.ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport3From.Value)}' " +
+                $"AND Db_Construct.ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport3To.Value)}' " +
+                $"AND Col_RegionsAndConstructs.КодРегиона = Db_Region.Код " +
+                $"AND Col_RegionsAndConstructs.КодСооруж = Db_Construct.Код " +
+                $"AND Db_ConstructType.Код = Db_Construct.КодТипа " +
+                $"ORDER BY Db_Region.Название_ОблОрг").Tables[0].DefaultView;
+            CountAmount();
+            database.Dispose();
+        }
+
         // Редактировать, удалить населенные пункты
 
         private void buttonRedactLocale_Click(object sender, EventArgs e)
@@ -612,5 +661,6 @@ namespace DBStructCourse
             textBoxEventPplAmount.Text = dataGridViewEvent.SelectedRows[0].Cells[6].Value.ToString();
             comboBoxEventConstruct.Text = dataGridViewEvent.SelectedRows[0].Cells[7].Value.ToString();
         }
+
     }
 }

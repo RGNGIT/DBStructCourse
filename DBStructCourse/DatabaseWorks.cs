@@ -43,6 +43,7 @@ namespace DBStructCourse
 
         ~DatabaseWorks()
         {
+            GC.Collect();
             Dispose(false);
         }
 
