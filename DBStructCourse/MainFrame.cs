@@ -486,14 +486,14 @@ namespace DBStructCourse
                 "Ноябрь",
                 "Декабрь"
         };
-
+        
         private void buttonReport2_Click(object sender, EventArgs e)
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             chartReport2.Series.Clear();
             chartReport2.Series.Add(new Series($"{comboBoxReport2Const.SelectedItem}/{comboBoxReport2Event.SelectedItem}")
             {
-                ChartType = SeriesChartType.Line
+                ChartType = SeriesChartType.Column
             });
             dataGridViewReport2.DataSource = database.ReturnTable(
                 "Db_Event.Название_Мероприятия, Db_EventDate.ДатаПроведения",
@@ -506,16 +506,18 @@ namespace DBStructCourse
                 $"AND Db_EventDate.ДатаПроведения > '{GetSQLFormatDate(dateTimePickerReport2From.Value)}' " +
                 $"AND Db_EventDate.ДатаПроведения < '{GetSQLFormatDate(dateTimePickerReport2To.Value)}'").Tables[0].DefaultView;
             int TempCount = 0;
-            for(int i = 0; i < Math.Abs(dateTimePickerReport2From.Value.Year - dateTimePickerReport2To.Value.Year) * 12; i++)
+            double CalcYear;
+            for (int i = 0; i < Math.Abs(dateTimePickerReport2From.Value.Year - dateTimePickerReport2To.Value.Year) * 12; i++)
             {
-                for(int j = 0; j < dataGridViewReport2.Rows.Count - 1; j++)
+                CalcYear = dateTimePickerReport2From.Value.Year + Math.Round((double)(i / 12));
+                for (int j = 0; j < dataGridViewReport2.Rows.Count - 1; j++)
                 {
-                    if(dateTimePickerReport2From.Value.Year + Math.Floor((double)(i / 12)) == Convert.ToDateTime(dataGridViewReport2.Rows[j].Cells[1].Value).Year && Convert.ToDateTime(dataGridViewReport2.Rows[j].Cells[1].Value).Month == ((i % 12) + 1))
+                    if(CalcYear == Convert.ToDateTime(dataGridViewReport2.Rows[j].Cells[1].Value).Year && Convert.ToDateTime(dataGridViewReport2.Rows[j].Cells[1].Value).Month == ((i % 12) + 1))
                     {
                         TempCount++;
                     }
                 }
-                chartReport2.Series[$"{comboBoxReport2Const.SelectedItem}/{comboBoxReport2Event.SelectedItem}"].Points.AddXY(Months[i % 12], TempCount);
+                chartReport2.Series[$"{comboBoxReport2Const.SelectedItem}/{comboBoxReport2Event.SelectedItem}"].Points.AddXY($"{Months[i % 12]} {CalcYear}", TempCount);
                 TempCount = 0;
             }
             database.Dispose();
