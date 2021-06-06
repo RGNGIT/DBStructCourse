@@ -3,6 +3,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DBStructCourse
 {
@@ -14,6 +15,7 @@ namespace DBStructCourse
             DirTabUpdate();
             MainTabUpdate(tabControlMain.SelectedIndex);
             ComboUpdates();
+            chartReport2.Series.Clear();
             dataGridViewReport3Amount.Columns.Add("_regName", "НазваниеОрганизации");
             dataGridViewReport3Amount.Columns.Add("_consAmount", "КоличествоСооружений");
         }
@@ -188,6 +190,8 @@ namespace DBStructCourse
             comboBoxEventType.Items.Clear();
             comboBoxLocaleEvent.Items.Clear();
             comboBoxReportType.Items.Clear();
+            comboBoxReport2Const.Items.Clear();
+            comboBoxReport2Event.Items.Clear();
             foreach (string i in BufferListUpdate(0))
             {
                 comboBoxLocaleType.Items.Add(i);
@@ -214,10 +218,12 @@ namespace DBStructCourse
             foreach (string i in BufferListUpdate(7))
             {
                 comboBoxEventConstruct.Items.Add(i);
+                comboBoxReport2Const.Items.Add(i);
             }
             foreach (string i in BufferListUpdate(4))
             {
                 comboBoxEventType.Items.Add(i);
+                comboBoxReport2Event.Items.Add(i);
             }
         }
 
@@ -462,6 +468,56 @@ namespace DBStructCourse
                 $"AND КодТипа = {GetDirCode("Db_ConstructType", comboBoxReportType.SelectedItem.ToString(), 1)} " +
                 $"AND Db_Construct.Код = Col_RegionsAndConstructs.КодСооруж " +
                 $"AND Db_Region.Код = Col_RegionsAndConstructs.КодРегиона").Tables[0].DefaultView;
+            database.Dispose();
+        }
+
+        string[] Months = new string[12]
+        {
+                "Январь",
+                "Февраль",
+                "Март",
+                "Апрель",
+                "Май",
+                "Июнь",
+                "Июль",
+                "Август",
+                "Сентябрь",
+                "Октябрь",
+                "Ноябрь",
+                "Декабрь"
+        };
+
+        private void buttonReport2_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks database = new DatabaseWorks(Credentials);
+            chartReport2.Series.Clear();
+            chartReport2.Series.Add(new Series($"{comboBoxReport2Const.SelectedItem}/{comboBoxReport2Event.SelectedItem}")
+            {
+                ChartType = SeriesChartType.Line
+            });
+            dataGridViewReport2.DataSource = database.ReturnTable(
+                "Db_Event.Название_Мероприятия, Db_EventDate.ДатаПроведения",
+                "Db_Event, Db_EventDate, Db_EventType, Db_Construct",
+                "WHERE Db_EventDate.Код_Мероприятия = Db_Event.Код " +
+                "AND Db_Event.КодТипа = Db_EventType.Код " +
+                "AND Db_EventDate.Код_Сооруж = Db_Construct.Код " +
+                $"AND Db_Construct.Код = {GetDirCode("Db_Construct", comboBoxReport2Const.SelectedItem.ToString(), 1)}" +
+                $"AND Db_EventType.Код = {GetDirCode("Db_EventType", comboBoxReport2Event.SelectedItem.ToString(), 1)} " +
+                $"AND Db_EventDate.ДатаПроведения > '{GetSQLFormatDate(dateTimePickerReport2From.Value)}' " +
+                $"AND Db_EventDate.ДатаПроведения < '{GetSQLFormatDate(dateTimePickerReport2To.Value)}'").Tables[0].DefaultView;
+            int TempCount = 0;
+            for(int i = 0; i < Math.Abs(dateTimePickerReport2From.Value.Year - dateTimePickerReport2To.Value.Year) * 12; i++)
+            {
+                for(int j = 0; j < dataGridViewReport2.Rows.Count - 1; j++)
+                {
+                    if(dateTimePickerReport2From.Value.Year + Math.Floor((double)(i / 12)) == Convert.ToDateTime(dataGridViewReport2.Rows[j].Cells[1].Value).Year && Convert.ToDateTime(dataGridViewReport2.Rows[j].Cells[1].Value).Month == ((i % 12) + 1))
+                    {
+                        TempCount++;
+                    }
+                }
+                chartReport2.Series[$"{comboBoxReport2Const.SelectedItem}/{comboBoxReport2Event.SelectedItem}"].Points.AddXY(Months[i % 12], TempCount);
+                TempCount = 0;
+            }
             database.Dispose();
         }
 

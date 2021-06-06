@@ -29,6 +29,9 @@ namespace DBStructCourse
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonDeleteLocale = new System.Windows.Forms.Button();
@@ -134,21 +137,33 @@ namespace DBStructCourse
             this.dateTimePickerReport1From = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewReport1 = new System.Windows.Forms.DataGridView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.buttonReport2 = new System.Windows.Forms.Button();
+            this.comboBoxReport2Const = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.comboBoxReport2Event = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.dateTimePickerReport2To = new System.Windows.Forms.DateTimePicker();
+            this.label40 = new System.Windows.Forms.Label();
+            this.dateTimePickerReport2From = new System.Windows.Forms.DateTimePicker();
+            this.chartReport2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.buttonShowLog = new System.Windows.Forms.Button();
-            this.listBoxMainLog = new System.Windows.Forms.ListBox();
-            this.dataGridViewConsSelect = new System.Windows.Forms.DataGridView();
-            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
-            this.dataGridViewReport3 = new System.Windows.Forms.DataGridView();
+            this.label37 = new System.Windows.Forms.Label();
+            this.dataGridViewReport3Amount = new System.Windows.Forms.DataGridView();
+            this.buttonReport3 = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.dateTimePickerReport3To = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
             this.dateTimePickerReport3From = new System.Windows.Forms.DateTimePicker();
-            this.buttonReport3 = new System.Windows.Forms.Button();
-            this.dataGridViewReport3Amount = new System.Windows.Forms.DataGridView();
-            this.label37 = new System.Windows.Forms.Label();
+            this.dataGridViewReport3 = new System.Windows.Forms.DataGridView();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.buttonShowLog = new System.Windows.Forms.Button();
+            this.listBoxMainLog = new System.Windows.Forms.ListBox();
+            this.dataGridViewConsSelect = new System.Windows.Forms.DataGridView();
+            this.dataGridViewListReturner = new System.Windows.Forms.DataGridView();
+            this.dataGridViewReport2 = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocale)).BeginInit();
@@ -170,12 +185,15 @@ namespace DBStructCourse
             this.tabControlTasks.SuspendLayout();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport1)).BeginInit();
+            this.tabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReport2)).BeginInit();
             this.tabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3Amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3)).BeginInit();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3Amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -1211,6 +1229,18 @@ namespace DBStructCourse
             // 
             // tabPage14
             // 
+            this.tabPage14.Controls.Add(this.dataGridViewReport2);
+            this.tabPage14.Controls.Add(this.buttonReport2);
+            this.tabPage14.Controls.Add(this.comboBoxReport2Const);
+            this.tabPage14.Controls.Add(this.label42);
+            this.tabPage14.Controls.Add(this.comboBoxReport2Event);
+            this.tabPage14.Controls.Add(this.label41);
+            this.tabPage14.Controls.Add(this.label38);
+            this.tabPage14.Controls.Add(this.label39);
+            this.tabPage14.Controls.Add(this.dateTimePickerReport2To);
+            this.tabPage14.Controls.Add(this.label40);
+            this.tabPage14.Controls.Add(this.dateTimePickerReport2From);
+            this.tabPage14.Controls.Add(this.chartReport2);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
@@ -1219,6 +1249,109 @@ namespace DBStructCourse
             this.tabPage14.Text = "За заданный период динамика занятости спортивного сооружения в мероприятиях задан" +
     "ного типа по месяцам";
             this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // buttonReport2
+            // 
+            this.buttonReport2.Location = new System.Drawing.Point(6, 554);
+            this.buttonReport2.Name = "buttonReport2";
+            this.buttonReport2.Size = new System.Drawing.Size(349, 23);
+            this.buttonReport2.TabIndex = 46;
+            this.buttonReport2.Text = "Выполнить";
+            this.buttonReport2.UseVisualStyleBackColor = true;
+            this.buttonReport2.Click += new System.EventHandler(this.buttonReport2_Click);
+            // 
+            // comboBoxReport2Const
+            // 
+            this.comboBoxReport2Const.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReport2Const.FormattingEnabled = true;
+            this.comboBoxReport2Const.Location = new System.Drawing.Point(6, 114);
+            this.comboBoxReport2Const.Name = "comboBoxReport2Const";
+            this.comboBoxReport2Const.Size = new System.Drawing.Size(349, 21);
+            this.comboBoxReport2Const.TabIndex = 45;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(6, 98);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(69, 13);
+            this.label42.TabIndex = 44;
+            this.label42.Text = "Сооружение";
+            // 
+            // comboBoxReport2Event
+            // 
+            this.comboBoxReport2Event.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReport2Event.FormattingEnabled = true;
+            this.comboBoxReport2Event.Location = new System.Drawing.Point(6, 155);
+            this.comboBoxReport2Event.Name = "comboBoxReport2Event";
+            this.comboBoxReport2Event.Size = new System.Drawing.Size(349, 21);
+            this.comboBoxReport2Event.TabIndex = 43;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(6, 139);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(96, 13);
+            this.label41.TabIndex = 42;
+            this.label41.Text = "Тип мероприятия";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(6, 6);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(48, 13);
+            this.label38.TabIndex = 41;
+            this.label38.Text = "Период:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(6, 59);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(21, 13);
+            this.label39.TabIndex = 40;
+            this.label39.Text = "По";
+            // 
+            // dateTimePickerReport2To
+            // 
+            this.dateTimePickerReport2To.Location = new System.Drawing.Point(6, 75);
+            this.dateTimePickerReport2To.Name = "dateTimePickerReport2To";
+            this.dateTimePickerReport2To.Size = new System.Drawing.Size(349, 20);
+            this.dateTimePickerReport2To.TabIndex = 39;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(6, 20);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(14, 13);
+            this.label40.TabIndex = 38;
+            this.label40.Text = "С";
+            // 
+            // dateTimePickerReport2From
+            // 
+            this.dateTimePickerReport2From.Location = new System.Drawing.Point(6, 36);
+            this.dateTimePickerReport2From.Name = "dateTimePickerReport2From";
+            this.dateTimePickerReport2From.Size = new System.Drawing.Size(349, 20);
+            this.dateTimePickerReport2From.TabIndex = 37;
+            // 
+            // chartReport2
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartReport2.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartReport2.Legends.Add(legend1);
+            this.chartReport2.Location = new System.Drawing.Point(361, 6);
+            this.chartReport2.Name = "chartReport2";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartReport2.Series.Add(series1);
+            this.chartReport2.Size = new System.Drawing.Size(726, 571);
+            this.chartReport2.TabIndex = 0;
+            this.chartReport2.Text = "chart1";
             // 
             // tabPage15
             // 
@@ -1239,6 +1372,82 @@ namespace DBStructCourse
             this.tabPage15.Text = "На заданную дату список организаций, на балансе у которых находятся спортивные со" +
     "оружения, их количество";
             this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(6, 98);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(130, 13);
+            this.label37.TabIndex = 39;
+            this.label37.Text = "Количества сооружений";
+            // 
+            // dataGridViewReport3Amount
+            // 
+            this.dataGridViewReport3Amount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReport3Amount.Location = new System.Drawing.Point(6, 114);
+            this.dataGridViewReport3Amount.Name = "dataGridViewReport3Amount";
+            this.dataGridViewReport3Amount.Size = new System.Drawing.Size(349, 434);
+            this.dataGridViewReport3Amount.TabIndex = 38;
+            // 
+            // buttonReport3
+            // 
+            this.buttonReport3.Location = new System.Drawing.Point(6, 554);
+            this.buttonReport3.Name = "buttonReport3";
+            this.buttonReport3.Size = new System.Drawing.Size(349, 23);
+            this.buttonReport3.TabIndex = 37;
+            this.buttonReport3.Text = "Выполнить";
+            this.buttonReport3.UseVisualStyleBackColor = true;
+            this.buttonReport3.Click += new System.EventHandler(this.buttonReport3_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 6);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(86, 13);
+            this.label34.TabIndex = 36;
+            this.label34.Text = "Дата принятия:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(6, 59);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(21, 13);
+            this.label35.TabIndex = 35;
+            this.label35.Text = "По";
+            // 
+            // dateTimePickerReport3To
+            // 
+            this.dateTimePickerReport3To.Location = new System.Drawing.Point(6, 75);
+            this.dateTimePickerReport3To.Name = "dateTimePickerReport3To";
+            this.dateTimePickerReport3To.Size = new System.Drawing.Size(349, 20);
+            this.dateTimePickerReport3To.TabIndex = 34;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 20);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(14, 13);
+            this.label36.TabIndex = 33;
+            this.label36.Text = "С";
+            // 
+            // dateTimePickerReport3From
+            // 
+            this.dateTimePickerReport3From.Location = new System.Drawing.Point(6, 36);
+            this.dateTimePickerReport3From.Name = "dateTimePickerReport3From";
+            this.dateTimePickerReport3From.Size = new System.Drawing.Size(349, 20);
+            this.dateTimePickerReport3From.TabIndex = 32;
+            // 
+            // dataGridViewReport3
+            // 
+            this.dataGridViewReport3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReport3.Location = new System.Drawing.Point(361, 6);
+            this.dataGridViewReport3.Name = "dataGridViewReport3";
+            this.dataGridViewReport3.Size = new System.Drawing.Size(726, 571);
+            this.dataGridViewReport3.TabIndex = 3;
             // 
             // tabPage11
             // 
@@ -1288,81 +1497,13 @@ namespace DBStructCourse
             this.dataGridViewListReturner.Size = new System.Drawing.Size(236, 143);
             this.dataGridViewListReturner.TabIndex = 28;
             // 
-            // dataGridViewReport3
+            // dataGridViewReport2
             // 
-            this.dataGridViewReport3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReport3.Location = new System.Drawing.Point(361, 6);
-            this.dataGridViewReport3.Name = "dataGridViewReport3";
-            this.dataGridViewReport3.Size = new System.Drawing.Size(726, 571);
-            this.dataGridViewReport3.TabIndex = 3;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(6, 6);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(86, 13);
-            this.label34.TabIndex = 36;
-            this.label34.Text = "Дата принятия:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(6, 59);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(21, 13);
-            this.label35.TabIndex = 35;
-            this.label35.Text = "По";
-            // 
-            // dateTimePickerReport3To
-            // 
-            this.dateTimePickerReport3To.Location = new System.Drawing.Point(6, 75);
-            this.dateTimePickerReport3To.Name = "dateTimePickerReport3To";
-            this.dateTimePickerReport3To.Size = new System.Drawing.Size(349, 20);
-            this.dateTimePickerReport3To.TabIndex = 34;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(6, 20);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(14, 13);
-            this.label36.TabIndex = 33;
-            this.label36.Text = "С";
-            // 
-            // dateTimePickerReport3From
-            // 
-            this.dateTimePickerReport3From.Location = new System.Drawing.Point(6, 36);
-            this.dateTimePickerReport3From.Name = "dateTimePickerReport3From";
-            this.dateTimePickerReport3From.Size = new System.Drawing.Size(349, 20);
-            this.dateTimePickerReport3From.TabIndex = 32;
-            // 
-            // buttonReport3
-            // 
-            this.buttonReport3.Location = new System.Drawing.Point(6, 554);
-            this.buttonReport3.Name = "buttonReport3";
-            this.buttonReport3.Size = new System.Drawing.Size(349, 23);
-            this.buttonReport3.TabIndex = 37;
-            this.buttonReport3.Text = "Выполнить";
-            this.buttonReport3.UseVisualStyleBackColor = true;
-            this.buttonReport3.Click += new System.EventHandler(this.buttonReport3_Click);
-            // 
-            // dataGridViewReport3Amount
-            // 
-            this.dataGridViewReport3Amount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReport3Amount.Location = new System.Drawing.Point(6, 114);
-            this.dataGridViewReport3Amount.Name = "dataGridViewReport3Amount";
-            this.dataGridViewReport3Amount.Size = new System.Drawing.Size(349, 434);
-            this.dataGridViewReport3Amount.TabIndex = 38;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 98);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(130, 13);
-            this.label37.TabIndex = 39;
-            this.label37.Text = "Количества сооружений";
+            this.dataGridViewReport2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReport2.Location = new System.Drawing.Point(6, 182);
+            this.dataGridViewReport2.Name = "dataGridViewReport2";
+            this.dataGridViewReport2.Size = new System.Drawing.Size(349, 366);
+            this.dataGridViewReport2.TabIndex = 47;
             // 
             // MainFrame
             // 
@@ -1403,13 +1544,17 @@ namespace DBStructCourse
             this.tabPage13.ResumeLayout(false);
             this.tabPage13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport1)).EndInit();
+            this.tabPage14.ResumeLayout(false);
+            this.tabPage14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReport2)).EndInit();
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3Amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3)).EndInit();
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListReturner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport3Amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1536,6 +1681,18 @@ namespace DBStructCourse
         private System.Windows.Forms.Button buttonReport3;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.DataGridView dataGridViewReport3Amount;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.DateTimePicker dateTimePickerReport2To;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.DateTimePicker dateTimePickerReport2From;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartReport2;
+        private System.Windows.Forms.ComboBox comboBoxReport2Const;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.ComboBox comboBoxReport2Event;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Button buttonReport2;
+        private System.Windows.Forms.DataGridView dataGridViewReport2;
     }
 }
 
