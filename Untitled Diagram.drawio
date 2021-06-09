@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-06-09T14:50:02.653Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" etag="lwUP7GOij0lC2x4buBY7" version="14.7.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-09T15:00:52.981Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" etag="oK89aA3Nw0R9yivWQucO" version="14.7.3" type="github">
   <diagram id="JcpFo3pnrb1yveTzviW8" name="Page-1">
     <mxGraphModel dx="1422" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -105,7 +105,7 @@
         <mxCell id="RXx_gNftj5iXkbYdSQBd-49" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="RXx_gNftj5iXkbYdSQBd-51" vertex="1">
           <mxGeometry x="1" y="1" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="RXx_gNftj5iXkbYdSQBd-50" value="Специалист" style="rounded=0;whiteSpace=wrap;html=1;" parent="RXx_gNftj5iXkbYdSQBd-51" vertex="1">
+        <mxCell id="RXx_gNftj5iXkbYdSQBd-50" value="Ответственное лицо" style="rounded=0;whiteSpace=wrap;html=1;" parent="RXx_gNftj5iXkbYdSQBd-51" vertex="1">
           <mxGeometry x="2" y="2" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RXx_gNftj5iXkbYdSQBd-58" value="" style="group" parent="1" vertex="1" connectable="0">
