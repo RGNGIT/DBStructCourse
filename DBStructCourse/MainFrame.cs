@@ -461,7 +461,9 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewReport1.DataSource = database.ReturnTable(
-                "Db_Construct.Код as Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость, Площадь_Сооруж as Площадь, Db_Region.Название_ОблОрг as Организация",
+                "Db_Construct.Код as Код, Название_Сооруж as Название, Кр_Название_Сооруж as КраткоеНазвание, " +
+                "ДатаПринятия_Сооруж as ДатаПринятия, Вместимость_Сооруж as Вместимость," +
+                " Площадь_Сооруж as Площадь, Db_Region.Название_ОблОрг as Организация",
                 "Db_Construct, Db_Region, Col_RegionsAndConstructs",
                 $"WHERE ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport1From.Value)}' " +
                 $"AND ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport1To.Value)}' " +
@@ -558,8 +560,9 @@ namespace DBStructCourse
         {
             DatabaseWorks database = new DatabaseWorks(Credentials);
             dataGridViewReport3.DataSource = database.ReturnTable(
-                "Db_Region.Название_ОблОрг as НазваниеОрганизации, Db_Construct.Название_Сооруж as НазваниеСооружения, Db_ConstructType.Тип_Сооруж as ТипСооружения", 
-                "Db_Region, Db_Construct, Db_ConstructType, Col_RegionsAndConstructs", 
+                "Db_Region.Название_ОблОрг as НазваниеОрганизации, Db_Construct.Название_Сооруж as НазваниеСооружения, " +
+                "Db_ConstructType.Тип_Сооруж as ТипСооружения", 
+                "Db_Region, Db_Construct, Db_ConstructType, Col_RegionsAndConstructs ", 
                 $"WHERE Db_Construct.ДатаПринятия_Сооруж > '{GetSQLFormatDate(dateTimePickerReport3From.Value)}' " +
                 $"AND Db_Construct.ДатаПринятия_Сооруж < '{GetSQLFormatDate(dateTimePickerReport3To.Value)}' " +
                 $"AND Col_RegionsAndConstructs.КодРегиона = Db_Region.Код " +

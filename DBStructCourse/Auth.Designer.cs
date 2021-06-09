@@ -52,7 +52,7 @@ namespace DBStructCourse
             // 
             this.textBoxServer.Location = new System.Drawing.Point(15, 62);
             this.textBoxServer.Name = "textBoxServer";
-            this.textBoxServer.Size = new System.Drawing.Size(100, 20);
+            this.textBoxServer.Size = new System.Drawing.Size(277, 20);
             this.textBoxServer.TabIndex = 1;
             this.textBoxServer.Text = "localhost";
             // 
@@ -60,7 +60,7 @@ namespace DBStructCourse
             // 
             this.textBoxSecurity.Location = new System.Drawing.Point(15, 101);
             this.textBoxSecurity.Name = "textBoxSecurity";
-            this.textBoxSecurity.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSecurity.Size = new System.Drawing.Size(277, 20);
             this.textBoxSecurity.TabIndex = 2;
             this.textBoxSecurity.Text = "SSPI";
             // 
@@ -68,7 +68,7 @@ namespace DBStructCourse
             // 
             this.textBoxDB.Location = new System.Drawing.Point(15, 140);
             this.textBoxDB.Name = "textBoxDB";
-            this.textBoxDB.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDB.Size = new System.Drawing.Size(277, 20);
             this.textBoxDB.TabIndex = 3;
             this.textBoxDB.Text = "course";
             // 
@@ -101,9 +101,9 @@ namespace DBStructCourse
             // 
             // buttonAuth
             // 
-            this.buttonAuth.Location = new System.Drawing.Point(15, 293);
+            this.buttonAuth.Location = new System.Drawing.Point(15, 166);
             this.buttonAuth.Name = "buttonAuth";
-            this.buttonAuth.Size = new System.Drawing.Size(100, 23);
+            this.buttonAuth.Size = new System.Drawing.Size(277, 23);
             this.buttonAuth.TabIndex = 7;
             this.buttonAuth.Text = "Подключиться";
             this.buttonAuth.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@ namespace DBStructCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 328);
+            this.ClientSize = new System.Drawing.Size(304, 203);
             this.Controls.Add(this.buttonAuth);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
